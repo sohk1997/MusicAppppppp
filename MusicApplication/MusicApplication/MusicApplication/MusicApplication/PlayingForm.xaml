@@ -1,0 +1,99 @@
+﻿<Window x:Class="MusicApplication.PlayingForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicApplication"
+        mc:Ignorable="d"
+       Title="PlayingForm" Height="700" Width="1000"
+         WindowStartupLocation="CenterScreen">
+    <Grid Background="Black">
+        <DockPanel>
+            <DockPanel.Background>
+                <ImageBrush Stretch="UniformToFill" Opacity="0.5" ImageSource="Image\bgLogin.jpg"></ImageBrush>
+            </DockPanel.Background>
+            <StackPanel DockPanel.Dock="Left" Width="600">
+                <StackPanel Margin="0,10,0,10">
+                    <StackPanel.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Label>Thương em hơn chính anh</Label>
+                    <Label>Jun Phạm</Label>
+                </StackPanel>
+                <Ellipse Height="400" Width="400" Margin="0,0,0,50">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="Image\bgLogin.jpg"></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Width" Value="60"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Label x:Name="lbCurrent" Content="0:21" HorizontalContentAlignment="Right"/>
+                    <Slider x:Name="slPlay" Width="450" 
+                            VerticalAlignment="Center"
+                            Margin="10,0,10,0" IsEnabled="False"/>
+                    <Label x:Name="lbLength" Content="4:00"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Height" Value="70"/>
+                            <Setter Property="Width" Value="70"/>
+                            <Setter Property="Background" Value="{Binding DockPanel.Background}"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button Width="50" Height="50" Margin="0,0,70,0">
+                        <Image Source="Image\Music\shuffle.png" Stretch="Uniform"/>
+                    </Button>
+                    <Button>
+                        <Image Source="Image\Music\back.png" Stretch="Uniform"></Image>
+                    </Button>
+                    <Button Name="btnPlay" Click="btnPlay_Click" Margin="15,0,15,0">
+                        <Image Source="Image\Music\play.png" Stretch="Uniform"></Image>
+                    </Button>
+                    <Button Name="btnStop" Width="0" Click="btnStop_Click">
+                        <Image Source="Image\Music\stop.png" Stretch="Uniform"></Image>
+                    </Button>
+                    <Button>
+                        <Image Source="Image\Music\next.png" Stretch="Uniform"></Image>
+                    </Button>
+                    <Button Width="50" Height="50" Margin="70,0,0,0">
+                        <Image Source="Image\Music\replay.png" Stretch="Uniform"></Image>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <Border BorderBrush="White" BorderThickness="0.7" Margin="0,70,0,70"/>
+            <StackPanel/>
+            <!-- music list -->
+            <ScrollViewer Height="510" VerticalScrollBarVisibility="Auto">
+                <!--<ListView Height="510" Width="358"
+                       Background="{Binding RelativeSource={RelativeSource FindAncestor,
+                    AncestorType=Control}, Path=Background}">
+                </ListView>-->
+                <ListBox x:Name="lbSongs"  Background="{Binding RelativeSource={RelativeSource FindAncestor,
+                    AncestorType=Control}, Path=Background}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Button Content="{Binding}">
+
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>

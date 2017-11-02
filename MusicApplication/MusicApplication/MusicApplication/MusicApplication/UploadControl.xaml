@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="MusicApplication.UploadControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MusicApplication"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="950">
+    <DockPanel Background="#414242">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Margin" Value="0,0,0,20"/>
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Width" Value="400"/>
+                        <Setter Property="Background" Value="#454545"/>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="Width" Value="110"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,0,20,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Width="600" Orientation="Vertical" Margin="0">
+                    <StackPanel HorizontalAlignment="Center" Margin="0,150,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Tên bài hát(*)"/>
+                            <TextBox />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="URL(*)"/>
+                            <TextBox Width="300" />
+                            <Button Name="btnChooseFile" Cursor="Hand" Content="Chọn file" Width="100" Click="btnChooseFile_Click"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Tác giả(*)"/>
+                            <TextBox />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Lyric"/>
+                            <TextBox Height="100" />
+                        </StackPanel>
+                        <Button Content="Tải lên" 
+                            Width="200" 
+                            Height="50" 
+                            Margin="0,30,0,0"
+                            FontWeight="Bold"
+                            FontSize="20"
+                            Background="#585858"
+                            Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+                <Border BorderThickness="0.5"  BorderBrush="Gray"/>
+                <StackPanel Width="350">
+                    <Label Content="Bài hát đã tải lên"
+                       Width="350"
+                       HorizontalContentAlignment="Center"
+                       FontSize="30"
+                       Margin="0,30,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

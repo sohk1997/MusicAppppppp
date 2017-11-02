@@ -1,0 +1,40 @@
+E:\GitHub\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
+E:\GitHub\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
+E:\GitHub\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.pdb
+E:\GitHub\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
+E:\GitHub\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
+E:\GitHub\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
+E:\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
+E:\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
+E:\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.pdb
+E:\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csprojResolveAssemblyReference.cache
+E:\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
+E:\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
+E:\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
+E:\GitHub\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csprojResolveAssemblyReference.cache
+E:\Tung\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
+E:\Tung\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
+E:\Tung\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.pdb
+E:\Tung\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
+E:\Tung\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
+E:\Tung\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
+<<<<<<< HEAD
+E:\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
+E:\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
+E:\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.pdb
+E:\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csprojResolveAssemblyReference.cache
+E:\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
+E:\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
+E:\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
+=======
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.pdb
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
+<<<<<<< HEAD
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csprojResolveAssemblyReference.cache
+=======
+>>>>>>> 1ff26e4bcc6c357ab638ddba4d45b941625d1896
+>>>>>>> 2b65c4427398f552ee76925d4dd02707f5ddb6a3

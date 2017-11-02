@@ -1,0 +1,28 @@
+﻿MusicApplication
+
+
+winexe
+C#
+.cs
+<<<<<<< HEAD
+E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\
+=======
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\
+>>>>>>> 1ff26e4bcc6c357ab638ddba4d45b941625d1896
+MusicApplication
+none
+false
+DEBUG;TRACE
+<<<<<<< HEAD
+E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\App.xaml
+=======
+E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\App.xaml
+>>>>>>> 1ff26e4bcc6c357ab638ddba4d45b941625d1896
+11-433542168
+
+24-1185935221
+19-507688780
+ArtistControl.xaml;HomeControl.xaml;HomeForm.xaml;Login.xaml;MainWindow.xaml;PersonalPlaylist.xaml;Playing.xaml;PlayingForm.xaml;Register.xaml;SongControl.xaml;UploadControl.xaml;
+
+False
+
