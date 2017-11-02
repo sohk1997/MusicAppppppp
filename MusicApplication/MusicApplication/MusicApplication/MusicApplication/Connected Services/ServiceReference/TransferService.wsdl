@@ -43,6 +43,12 @@
     <wsdl:part name="parameters" element="tns:RegisterResponse" />
   </wsdl:message>
   <wsdl:message name="ITransfer_UploadSong_OutputMessage" />
+  <wsdl:message name="ITransfer_InsertSongInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSongInfo" />
+  </wsdl:message>
+  <wsdl:message name="ITransfer_InsertSongInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSongInfoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ITransfer">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/Login" message="tns:ITransfer_Login_InputMessage" />
@@ -63,6 +69,10 @@
     <wsdl:operation name="UploadSong">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/UploadSong" name="FileInfo" message="tns:FileInfo" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/UploadSongResponse" message="tns:ITransfer_UploadSong_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSongInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/InsertSongInfo" message="tns:ITransfer_InsertSongInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/InsertSongInfoResponse" message="tns:ITransfer_InsertSongInfo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITransfer" type="tns:ITransfer">
@@ -116,6 +126,15 @@
         <soap:header message="tns:FileInfo_Headers" part="Id" use="literal" />
         <soap:header message="tns:FileInfo_Headers" part="Singer" use="literal" />
         <soap:header message="tns:FileInfo_Headers" part="SongName" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSongInfo">
+      <soap:operation soapAction="http://tempuri.org/ITransfer/InsertSongInfo" style="document" />
+      <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>

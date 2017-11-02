@@ -73,4 +73,3 @@ E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\Mu
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csproj.CoreCompileInputs.cache
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.exe
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.pdb
-E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csprojResolveAssemblyReference.cache

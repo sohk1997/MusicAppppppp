@@ -14,7 +14,7 @@ namespace MusicAppService
 
         private string connectionString;
 
-        
+
         public SongInfo GetSongInformation(string id)
         {
             SongInfo ans = new SongInfo();
@@ -127,6 +127,71 @@ namespace MusicAppService
                 cnn.Close();
             }
             ans.RemoveAt(0);
+            return ans;
+        }
+
+        public int InsertSong(SongInfo song)
+        {
+            int ans = 0;
+            connectionString = ConfigurationManager.AppSettings["connectionString"];
+            SqlConnection cnn = new SqlConnection(connectionString);
+            string sql = "INSERT INTO Song([Name],UploaderID,Writter,[URL],[LastModified]) " +
+                         "VALUES(@Name, @Upload, @Writter, @URL, @LastModified)";
+            SqlCommand cmd = new SqlCommand(sql, cnn);
+            cmd.Parameters.AddWithValue("@Name", song.Name);
+            cmd.Parameters.AddWithValue("@Upload", song.Uploader);
+            cmd.Parameters.AddWithValue("@Writter", song.Writter);
+            cmd.Parameters.AddWithValue("@URL", song.URL);
+            cmd.Parameters.AddWithValue("@LastModified", DateTime.Now);
+            try
+            {
+                cnn.Open();
+                ans = cmd.ExecuteNonQuery();
+            }
+            catch (SqlException se)
+            {
+                throw new Exception(se.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return getNewestSong();
+        }
+
+        private int getNewestSong()
+        {
+            int ans = 0;
+            connectionString = ConfigurationManager.AppSettings["connectionString"];
+            SqlConnection cnn = new SqlConnection(connectionString);
+            string query = "SELECT TOP 1 * "+
+                           "From Song " +
+                           "ORDER BY Song.[ID] DESC";
+            SqlCommand cmd = new SqlCommand(query, cnn);
+
+            try
+            {
+                cnn.Open();
+                SongInfo currentSong = new SongInfo();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        int.TryParse(dr[0].ToString(), out ans);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnn.Close();
+            }
+
             return ans;
         }
     }

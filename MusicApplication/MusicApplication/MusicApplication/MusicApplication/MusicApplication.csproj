@@ -113,6 +113,7 @@
     <Compile Include="UploadControl.xaml.cs">
       <DependentUpon>UploadControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UploadSong.cs" />
     <Page Include="ArtistControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

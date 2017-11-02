@@ -30,20 +30,20 @@
                     <StackPanel HorizontalAlignment="Center" Margin="0,150,0,0">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Tên bài hát(*)"/>
-                            <TextBox />
+                            <TextBox x:Name="txtName" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="URL(*)"/>
-                            <TextBox Width="300" />
+                            <TextBox x:Name="txtURL" Width="300" />
                             <Button Name="btnChooseFile" Cursor="Hand" Content="Chọn file" Width="100" Click="btnChooseFile_Click"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Tác giả(*)"/>
-                            <TextBox />
+                            <TextBox x:Name="txtWriter" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Lyric"/>
-                            <TextBox Height="100" />
+                            <TextBox x:Name="txtLyric" Height="100" />
                         </StackPanel>
                         <Button Content="Tải lên" 
                             Width="200" 
@@ -52,7 +52,7 @@
                             FontWeight="Bold"
                             FontSize="20"
                             Background="#585858"
-                            Foreground="White"/>
+                            Foreground="White" Click="Button_Click"/>
                     </StackPanel>
                 </StackPanel>
                 <Border BorderThickness="0.5"  BorderBrush="Gray"/>
