@@ -23,7 +23,6 @@ namespace MusicApplication
         private readonly string SONG = "BÀI HÁT";
         private readonly string ARTIST = "NGHỆ SĨ";
         private readonly string UPLOAD = "TẢI LÊN";
-        private readonly string DOWNLOAD = "TẢI XUỐNG";
         private readonly string HOME = "TRANG CHỦ";
 
 

@@ -16,6 +16,9 @@
                     <Style TargetType="TextBox">
                         <Setter Property="Width" Value="400"/>
                         <Setter Property="Background" Value="#454545"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="5,0,0,0"/>
                     </Style>
                     <Style TargetType="Label">
                         <Setter Property="Width" Value="110"/>
@@ -31,6 +34,10 @@
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Tên bài hát(*)"/>
                             <TextBox x:Name="txtName" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Tên ca sĩ(*)"/>
+                            <TextBox x:Name="txtSinger" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="URL(*)"/>
