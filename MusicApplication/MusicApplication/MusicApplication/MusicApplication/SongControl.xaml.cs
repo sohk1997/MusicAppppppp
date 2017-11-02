@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MusicApplication.ServiceReference;
 
 namespace MusicApplication
 {
@@ -31,7 +32,11 @@ namespace MusicApplication
         }
 
         public MainWindow Parrent { get => parrent; set => parrent = value; }
-
+        public List<SongInfo> Items { get => items; set => items = value; }
+        public void LoadData()
+        {
+            lvSongs.ItemsSource = items;
+        }
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var fileDialog = new System.Windows.Forms.SaveFileDialog();
