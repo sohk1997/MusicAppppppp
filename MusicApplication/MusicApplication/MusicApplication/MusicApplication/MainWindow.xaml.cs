@@ -123,5 +123,20 @@ namespace MusicApplication
             Main.Content = uploadControl.Content;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(lbSearch.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter some name of song to search");
+                return;
+            }
+            textTitle.Text = SONG;
+            SongControl songControl = new SongControl();
+            ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
+            songControl.Items = transfer.FindSongLikeName(lbSearch.Text).ToList();
+            songControl.Parrent = this;
+            songControl.LoadData();
+            Main.Content = songControl.Content;
+        }
     }
 }
