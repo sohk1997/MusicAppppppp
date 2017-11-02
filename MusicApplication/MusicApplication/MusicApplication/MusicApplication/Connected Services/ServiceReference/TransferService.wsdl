@@ -49,6 +49,12 @@
   <wsdl:message name="ITransfer_InsertSongInfo_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertSongInfoResponse" />
   </wsdl:message>
+  <wsdl:message name="ITransfer_FindSongLikeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSongLikeName" />
+  </wsdl:message>
+  <wsdl:message name="ITransfer_FindSongLikeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSongLikeNameResponse" />
+  </wsdl:message>
   <wsdl:portType name="ITransfer">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/Login" message="tns:ITransfer_Login_InputMessage" />
@@ -73,6 +79,10 @@
     <wsdl:operation name="InsertSongInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/InsertSongInfo" message="tns:ITransfer_InsertSongInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/InsertSongInfoResponse" message="tns:ITransfer_InsertSongInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSongLikeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/FindSongLikeName" message="tns:ITransfer_FindSongLikeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/FindSongLikeNameResponse" message="tns:ITransfer_FindSongLikeName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITransfer" type="tns:ITransfer">
@@ -134,6 +144,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertSongInfo">
       <soap:operation soapAction="http://tempuri.org/ITransfer/InsertSongInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSongLikeName">
+      <soap:operation soapAction="http://tempuri.org/ITransfer/FindSongLikeName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

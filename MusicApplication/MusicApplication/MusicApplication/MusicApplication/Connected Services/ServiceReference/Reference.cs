@@ -336,6 +336,12 @@ namespace MusicApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/InsertSongInfo", ReplyAction="http://tempuri.org/ITransfer/InsertSongInfoResponse")]
         System.Threading.Tasks.Task<int> InsertSongInfoAsync(MusicApplication.ServiceReference.SongInfo song);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongLikeName", ReplyAction="http://tempuri.org/ITransfer/FindSongLikeNameResponse")]
+        MusicApplication.ServiceReference.SongInfo[] FindSongLikeName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongLikeName", ReplyAction="http://tempuri.org/ITransfer/FindSongLikeNameResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongLikeNameAsync(string name);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -518,6 +524,14 @@ namespace MusicApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<int> InsertSongInfoAsync(MusicApplication.ServiceReference.SongInfo song) {
             return base.Channel.InsertSongInfoAsync(song);
+        }
+        
+        public MusicApplication.ServiceReference.SongInfo[] FindSongLikeName(string name) {
+            return base.Channel.FindSongLikeName(name);
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongLikeNameAsync(string name) {
+            return base.Channel.FindSongLikeNameAsync(name);
         }
     }
 }

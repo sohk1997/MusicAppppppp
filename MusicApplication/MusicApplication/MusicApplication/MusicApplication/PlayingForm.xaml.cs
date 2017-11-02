@@ -46,9 +46,16 @@ namespace MusicApplication
             timer.AutoReset = true;
             lbLength.Content = "0:00";
             lbCurrent.Content = "0:00";
-            
+            this.Closing += PlayingForm_Closing;
             //MessageBox.Show("Hello herer");
         }
+
+        private void PlayingForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            player.PlayerClass.stop();
+            player.PlayerClass.URL = "";
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             //MessageBox.Show("Hello");
