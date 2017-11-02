@@ -24,6 +24,7 @@ E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\Mu
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
+<<<<<<< HEAD
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csprojResolveAssemblyReference.cache
 E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
 E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
@@ -32,3 +33,5 @@ E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\ob
 E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
 E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
 E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
+=======
+>>>>>>> a55108f9a6e40e523b3251f9c7e46f8580fe1229

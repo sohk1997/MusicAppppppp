@@ -28,6 +28,8 @@ namespace MusicAppService
         [OperationContract]
         void UploadSong(FileInfo request);
 
+        [OperationContract]
+        int InsertSongInfo(SongInfo song);
     }
 
     [MessageContract]

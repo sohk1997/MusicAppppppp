@@ -73,6 +73,7 @@ E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\Mu
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csproj.CoreCompileInputs.cache
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.exe
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.pdb
+<<<<<<< HEAD
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csprojResolveAssemblyReference.cache
 E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.exe
 E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\Interop.WMPLib.dll
@@ -113,3 +114,5 @@ E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\
 E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.pdb
 E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.pdb
 E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csprojResolveAssemblyReference.cache
+=======
+>>>>>>> a55108f9a6e40e523b3251f9c7e46f8580fe1229

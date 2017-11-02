@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,52 @@ namespace MusicApplication
     /// </summary>
     public partial class UploadControl : UserControl
     {
+        int userID;
         public UploadControl()
         {
             InitializeComponent();
         }
+
+        public int UserID { get => userID; set => userID = value; }
+
         private void btnChooseFile_Click(object sender, RoutedEventArgs e)
         {
             var fileDialog = new System.Windows.Forms.OpenFileDialog();
             var result = fileDialog.ShowDialog();
+            if (!System.IO.Path.GetExtension(fileDialog.FileName).Equals(".mp3"))
+            {
+                MessageBox.Show("Please choose a .mp3 type file");
+                return;
+            }
+            txtURL.Text = fileDialog.FileName;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            userID = 1;
+            if(txtURL.Text.Length == 0)
+            {
+                MessageBox.Show("Please choose a file of the song");
+                return;
+            }
+            if (txtName.Text.Length == 0)
+            {
+                MessageBox.Show("Please choose a name of the song");
+                return;
+            }
+            if(txtWriter.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter writter of song");
+                return;
+            }
+            ServiceReference.SongInfo song = new ServiceReference.SongInfo();
+            song.Name = txtName.Text;
+            song.Writter = txtWriter.Text;
+            song.Uploader = ""+userID;
+            ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
+            int id = transfer.InsertSongInfo(song);
+            UploadSong uploader = new UploadSong();
+            uploader.UploadFile(""+id, txtURL.Text);
         }
     }
 }

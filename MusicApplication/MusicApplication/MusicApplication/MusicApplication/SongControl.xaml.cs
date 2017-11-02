@@ -34,16 +34,18 @@ namespace MusicApplication
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var fileDialog = new System.Windows.Forms.OpenFileDialog();
-            var result = fileDialog.ShowDialog();
-            //System.Windows.Controls.Image image = (System.Windows.Controls.Image)sender;
-            //DownloadSong downloadControl = new DownloadSong()
-            //{
+            var fileDialog = new System.Windows.Forms.SaveFileDialog();
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                System.Windows.Controls.Image image = (System.Windows.Controls.Image)sender;
+                DownloadSong downloadControl = new DownloadSong()
+                {
 
-            //    SongID = "S" + image.Tag.ToString(),
-            //    SaveURL = @"E:\TestingDownload\hahaha.mp3"
-            //};
-            //downloadControl.Download();
+                    SongID = "S" + image.Tag.ToString(),
+                    SaveURL = fileDialog.FileName + ".mp3"
+                };
+                downloadControl.Download();
+            }
         }
 
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -52,7 +54,7 @@ namespace MusicApplication
             PlayingForm playing = new PlayingForm();
             TextBlock block = (TextBlock)panel.Children[0];
             playing.SongID = "S" + block.Text;
-            Parrent.Content = playing.Content;
+            playing.ShowDialog();
         }
     }
 }

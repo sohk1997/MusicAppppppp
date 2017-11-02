@@ -118,5 +118,10 @@ namespace MusicApplication
             btnStop.Margin = new Thickness(0);
             player.PlayerClass.pause();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            player.PlayerClass.currentPosition = 0;
+        }
     }
 }

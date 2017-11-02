@@ -63,5 +63,12 @@ namespace MusicAppService
                 inputStream.Close();
             }
         }
+
+        public int InsertSongInfo(SongInfo song)
+        {
+            song.URL = "aaaa";
+            SongInfoData data = new SongInfoData();
+            return data.InsertSong(song);
+        }
     }
 }
