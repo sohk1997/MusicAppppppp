@@ -68,9 +68,24 @@ namespace MusicAppService
         {
             song.URL = "aaaa";
             SongInfoData data = new SongInfoData();
-            return data.InsertSong(song);
+            int songID = data.InsertSong(song);
+            AddSingerAndSong(song.Singer, songID);
+            return 1;
         }
-
+        private void AddSingerAndSong(string singer,int songID)
+        {
+            Tung_ArtistData tool = new Tung_ArtistData();
+            string []singers = singer.Split(';');
+            foreach(string name in singers)
+            {
+                int id = tool.FindSingerByName(name);
+                if(id == 0)
+                {
+                    id = tool.AddSinger(name);
+                }
+                tool.AddSongWithSinger(id, songID);
+            }
+        }
         public List<SongInfo> FindSongLikeName(string name)
         {
             return new SongInfoData().FindSongLikeName(name);

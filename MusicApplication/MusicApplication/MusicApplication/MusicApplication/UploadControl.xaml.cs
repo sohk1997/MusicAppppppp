@@ -44,6 +44,11 @@ namespace MusicApplication
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             userID = 1;
+            if(txtSinger.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter at least one name for the singer");
+                return;
+            }
             if(txtURL.Text.Length == 0)
             {
                 MessageBox.Show("Please choose a file of the song");
@@ -59,14 +64,24 @@ namespace MusicApplication
                 MessageBox.Show("Please enter writter of song");
                 return;
             }
+            
             ServiceReference.SongInfo song = new ServiceReference.SongInfo();
             song.Name = txtName.Text;
             song.Writter = txtWriter.Text;
+            song.Singer = txtSinger.Text;
             song.Uploader = ""+userID;
             ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
             int id = transfer.InsertSongInfo(song);
             UploadSong uploader = new UploadSong();
             uploader.UploadFile(""+id, txtURL.Text);
+
+            txtName.Clear();
+            txtSinger.Clear();
+            txtURL.Clear();
+            txtWriter.Clear();
+            txtLyric.Clear();
+
+            MessageBox.Show("Ban da tai bai hat len thanh cong");
         }
     }
 }
