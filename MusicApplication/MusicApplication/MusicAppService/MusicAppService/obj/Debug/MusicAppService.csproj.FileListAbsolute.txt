@@ -1,6 +1,0 @@
-E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
-E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
-E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.pdb
-E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
-E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
-E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
