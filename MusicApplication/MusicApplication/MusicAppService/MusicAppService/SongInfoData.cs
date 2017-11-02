@@ -194,5 +194,61 @@ namespace MusicAppService
 
             return ans;
         }
+        public List<SongInfo> FindSongLikeName(string name)
+        {
+            List<SongInfo> ans = new List<SongInfo>();
+            connectionString = ConfigurationManager.AppSettings["connectionString"];
+            SqlConnection cnn = new SqlConnection(connectionString);
+            string query = "SELECT TOP 100 Song.[ID],Song.[NAME], SONG.[URL],Song.Writter,SINGER.FULLNAME,[User].[Username],Song.Lyric,Song.CountingPlay,Song.CountingLike " +
+                           "FROM((Song INNER JOIN SingersOfSong ON SONG.[ID] = SingersOfSong.SongID) " +
+                           "INNER JOIN Singer ON Singer.[ID] = SingersOfSong.SingerID) " +
+                           "INNER JOIN[User] ON Song.UploaderID = [User].[ID] " +
+                           "WHERE [Song].[NAME] like @Name " +
+                           "ORDER BY Song.[ID] DESC";
+            SqlCommand cmd = new SqlCommand(query, cnn);
+            cmd.Parameters.AddWithValue("@Name","%"+name+"%");
+            int a = 0;
+            try
+            {
+                cnn.Open();
+                SongInfo currentSong = new SongInfo();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        string songid = dr[0 + a].ToString();
+                        if (songid.Equals(currentSong.ID))
+                        {
+                            currentSong.Singer += (", " + dr[4 + a].ToString());
+                        }
+                        else
+                        {
+                            ans.Add(currentSong);
+                            currentSong = new SongInfo();
+                            currentSong.ID = dr[0 + a].ToString();
+                            currentSong.Name = dr[1 + a].ToString();
+                            currentSong.URL = dr[2 + a].ToString();
+                            currentSong.Writter = dr[3 + a].ToString();
+                            currentSong.Singer = dr[4 + a].ToString();
+                            currentSong.Uploader = dr[5 + a].ToString();
+                        }
+                    }
+                    ans.Add(currentSong);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            ans.RemoveAt(0);
+            return ans;
+        }
     }
+
+
 }

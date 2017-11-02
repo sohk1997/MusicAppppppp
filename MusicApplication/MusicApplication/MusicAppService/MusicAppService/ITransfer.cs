@@ -30,6 +30,9 @@ namespace MusicAppService
 
         [OperationContract]
         int InsertSongInfo(SongInfo song);
+
+        [OperationContract]
+        List<SongInfo> FindSongLikeName(string name);
     }
 
     [MessageContract]
