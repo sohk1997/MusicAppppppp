@@ -36,46 +36,6 @@ E:\Tung\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\
 E:\Tung\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.pdb
 E:\Tung\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\Interop.WMPLib.dll
 E:\Tung\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csprojResolveAssemblyReference.cache
-<<<<<<< HEAD
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.exe.config
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.exe
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.pdb
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\Interop.WMPLib.dll
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csprojResolveAssemblyReference.cache
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\Interop.WMPLib.dll
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csproj.ResolveComReference.cache
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\ArtistControl.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\HomeControl.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\HomeForm.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\Login.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MainWindow.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\PersonalPlaylist.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\Playing.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\PlayingForm.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\Register.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\SongControl.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\UploadControl.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\App.g.cs
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication_MarkupCompile.cache
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication_MarkupCompile.lref
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\ArtistControl.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\HomeControl.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\HomeForm.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\Login.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MainWindow.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\PersonalPlaylist.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\Playing.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\PlayingForm.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\Register.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\SongControl.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\UploadControl.baml
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.g.resources
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.Properties.Resources.resources
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csproj.GenerateResource.Cache
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csproj.CoreCompileInputs.cache
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.exe
-E:\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.pdb
-=======
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.exe.config
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.exe
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\bin\Debug\MusicApplication.pdb
@@ -114,5 +74,3 @@ E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\Mu
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.exe
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.pdb
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\MusicApplication.csprojResolveAssemblyReference.cache
->>>>>>> 1ff26e4bcc6c357ab638ddba4d45b941625d1896
->>>>>>> 2b65c4427398f552ee76925d4dd02707f5ddb6a3
