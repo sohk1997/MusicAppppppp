@@ -124,11 +124,5 @@ namespace MusicApplication
             Main.Content = uploadControl.Content;
         }
 
-        private void btnDownload_Click(object sender, RoutedEventArgs e)
-        {
-            textTitle.Text = DOWNLOAD;
-            //DownloadControl downloadControl = new DownloadControl();
-            //Main.Content = downloadControl.Content;
-        }
     }
 }

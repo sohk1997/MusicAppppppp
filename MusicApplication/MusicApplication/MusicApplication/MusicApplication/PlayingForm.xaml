@@ -24,10 +24,17 @@
                     <Label>Thương em hơn chính anh</Label>
                     <Label>Jun Phạm</Label>
                 </StackPanel>
-                <Ellipse Height="400" Width="400" Margin="0,0,0,50">
+                <Ellipse Height="400" Width="400" Margin="0,0,0,50" RenderTransformOrigin="0.5, 0.5">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="Image\bgLogin.jpg"></ImageBrush>
                     </Ellipse.Fill>
+                    <!--<Ellipse.Triggers>
+                        <EventTrigger SourceName="btnPlay" RoutedEvent="Button.Click">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource imageRotation}" />
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Ellipse.Triggers>-->
                 </Ellipse>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <StackPanel.Resources>
@@ -51,6 +58,23 @@
                             <Setter Property="Height" Value="70"/>
                             <Setter Property="Width" Value="70"/>
                             <Setter Property="Background" Value="{Binding DockPanel.Background}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Grid>
+                                            <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                                                <ContentPresenter>
+                                                </ContentPresenter>
+                                            </Border>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="{Binding DockPanel.Background}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </StackPanel.Resources>
                     <Button Width="50" Height="50" Margin="0,0,70,0">

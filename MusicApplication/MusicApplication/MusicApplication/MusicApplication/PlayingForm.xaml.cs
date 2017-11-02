@@ -100,7 +100,7 @@ namespace MusicApplication
             if (player.PlayerClass.playState != WMPPlayState.wmppsPaused)
             {
                 //MessageBox.Show("Get in");
-                songID = "S1";
+                SongID = "S1";
                 player.SongID = songID;
                 player.Play();
             }

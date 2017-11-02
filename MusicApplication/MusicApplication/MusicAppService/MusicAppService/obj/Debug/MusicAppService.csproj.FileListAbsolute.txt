@@ -25,3 +25,10 @@ E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\Mu
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb
 E:\GitHub\MusicApplication\MusicApplication\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csprojResolveAssemblyReference.cache
+E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll.config
+E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.dll
+E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\bin\MusicAppService.pdb
+E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csprojResolveAssemblyReference.cache
+E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.csproj.CoreCompileInputs.cache
+E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.dll
+E:\MusicApp\MusicApplication\MusicApplication\MusicAppService\MusicAppService\obj\Debug\MusicAppService.pdb

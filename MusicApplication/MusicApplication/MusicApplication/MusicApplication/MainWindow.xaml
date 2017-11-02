@@ -13,15 +13,21 @@
                 <Style TargetType="TextBlock">
                     <Setter Property="Cursor" Value="Hand"/>
                     <Setter Property="Foreground" Value="White"/>
-                    <Setter Property="TextDecorations" Value="underline"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="TextDecorations" Value="Underline"/>
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
             </StackPanel.Resources>
             <!-- logo music-->
             <Image Width="80" Margin="50,0,120,0" Cursor="Hand" Source="/Image/Header/logo.png" Stretch="Fill"/>
             <!-- search-->
             <TextBox Width="300" Height="30"></TextBox>
-            <Button Height="30" BorderThickness="0" Background="Black" Margin="0,0,110,0" Cursor="Hand">
+            <Button Style="{StaticResource myButton}" Width="20" Height="30" BorderThickness="0" Background="Black" Margin="0,0,110,0" Cursor="Hand">
                 <Image Source="/Image/Header/search.png" Stretch="Uniform"></Image>
             </Button>
             <!-- logo user-->
@@ -39,14 +45,6 @@
         <StackPanel DockPanel.Dock="Left" Width="50" Background="#050505" Panel.ZIndex="3">
             <!--xử lý thuộc tính like css-->
             <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Cursor" Value="Hand"/>
-                    <Setter Property="Background" Value="Black"/>
-                    <Setter Property="Height" Value="40"/>
-                    <Setter Property="Margin" Value="0,20,0,0"/>
-                    <Setter Property="Width" Value="200"/>
-                    <Setter Property="BorderThickness" Value="0"/>
-                </Style>
                 <Style TargetType="Image">
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="Margin" Value="0,0,20,0"/>
@@ -78,49 +76,43 @@
                 </EventTrigger>
             </StackPanel.Triggers>
             <!--******************************************************************************-->
-            <Button Name="btnMenuShow" Click="btnMenuShow_Click" Margin="0">
+            <Button Style="{StaticResource myButton}" Name="btnMenuShow" Click="btnMenuShow_Click" Margin="0">
                 <DockPanel>
                     <Image Source="/Image/Menu/menu.png"></Image>
                     <Label>Menu</Label>
                 </DockPanel>
             </Button>
-            <Button Name="btnMenuHidden" Height="0" Margin="0" Click="btnMenuHidden_Click">
+            <Button Style="{StaticResource myButton}" Name="btnMenuHidden" Height="0" Margin="0" Click="btnMenuHidden_Click">
                 <DockPanel>
                     <Image Source="/Image/Menu/menu.png"></Image>
                     <Label>Menu</Label>
                 </DockPanel>
             </Button>
-            <Button Name="btnHome" Click="btnHome_Click">
+            <Button Style="{StaticResource myButton}" Name="btnHome" Click="btnHome_Click">
                 <DockPanel>
                     <Image Source="/Image/Menu/home.png"></Image>
                     <Label>Trang chủ</Label>
                 </DockPanel>
             </Button>
-            <Button Name="btnSong" Click="btnSong_Click">
+            <Button Style="{StaticResource myButton}" Name="btnSong" Click="btnSong_Click">
                 <DockPanel>
                     <Image Source="/Image/Menu/song.png"></Image>
                     <Label>Bài hát</Label>
                 </DockPanel>
             </Button>
-            <Button Name="btnArtist" Click="btnArtist_Click">
+            <Button Style="{StaticResource myButton}" Name="btnArtist" Click="btnArtist_Click">
                 <DockPanel>
                     <Image Source="/Image/Menu/singer.png"></Image>
                     <Label>Nghệ sĩ</Label>
                 </DockPanel>
             </Button>
-            <Button>
+            <Button Style="{StaticResource myButton}">
                 <DockPanel>
                     <Image Source="/Image/Menu/mymusic.png"></Image>
                     <Label>Nhạc của tôi</Label>
                 </DockPanel>
             </Button>
-            <Button Name="btnDownload" Click="btnDownload_Click">
-                <DockPanel>
-                    <Image Source="/Image/Menu/download.png"></Image>
-                    <Label>Tải xuống</Label>
-                </DockPanel>
-            </Button>
-            <Button Name="btnUpload" Click="btnUpload_Click">
+            <Button Style="{StaticResource myButton}" Name="btnUpload" Click="btnUpload_Click">
                 <DockPanel>
                     <Image Source="/Image/Menu/upload.png"></Image>
                     <Label >Tải lên</Label>
@@ -139,8 +131,7 @@
                        Margin="20,5,0,5"/>
         </StackPanel>
         <!-- bottom: playing-->
-        <StackPanel DockPanel.Dock="Bottom" Height="56">
-            <Button HorizontalContentAlignment="Left" Background="#404040" Height="56" Cursor="Hand" BorderThickness="0">
+            <!--<Button HorizontalContentAlignment="Left" Background="#404040" Height="56" Cursor="Hand" BorderThickness="0">
                 <DockPanel>
                     <StackPanel Orientation="Horizontal">
                         <StackPanel.Resources>
@@ -149,7 +140,7 @@
                                 <Setter Property="Background" Value="#404040"></Setter>
                             </Style>
                         </StackPanel.Resources>
-                        <!-- image song-->
+                        --><!-- image song--><!--
                         <Ellipse Height="50" Width="50" Margin="0,0,10,0">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="/Image/Singer/junpham.png"></ImageBrush>
@@ -169,14 +160,14 @@
                             <Image Source="/Image/Music/next.png" Stretch="Uniform"></Image>
                         </Button>
                     </StackPanel>
-                    <!--
+                    --><!--
                     <Button BorderThickness="0" Background="#4F4F4F">
                         <Image Source="E:\MusicApplication\MusicApplication\MusicApplication\Image\Music\pause.png"></Image>
                     </Button>
-                    -->
+                    --><!--
                 </DockPanel>
-            </Button>
-        </StackPanel>
+            </Button>-->
+        <!--</StackPanel>-->
         <Frame NavigationUIVisibility="Hidden" x:Name="Main" Background="#414242" Panel.ZIndex="1"/>
     </DockPanel>
 </Window>
