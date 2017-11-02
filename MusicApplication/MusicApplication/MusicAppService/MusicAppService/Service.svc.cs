@@ -70,5 +70,10 @@ namespace MusicAppService
             SongInfoData data = new SongInfoData();
             return data.InsertSong(song);
         }
+
+        public List<SongInfo> FindSongLikeName(string name)
+        {
+            return new SongInfoData().FindSongLikeName(name);
+        }
     }
 }

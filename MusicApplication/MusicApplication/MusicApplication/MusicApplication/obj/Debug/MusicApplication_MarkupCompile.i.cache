@@ -4,21 +4,17 @@
 winexe
 C#
 .cs
-E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\
+E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\obj\Debug\
 MusicApplication
 none
 false
 DEBUG;TRACE
-E:\MusicApp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\App.xaml
+E:\GitHub\MusicApplication\MusicAppppppp\MusicApplication\MusicApplication\MusicApplication\MusicApplication\App.xaml
 11-433542168
 
-<<<<<<< HEAD
-241135737471
-=======
 25652957210
->>>>>>> a55108f9a6e40e523b3251f9c7e46f8580fe1229
 19-507688780
 ArtistControl.xaml;HomeControl.xaml;HomeForm.xaml;Login.xaml;MainWindow.xaml;PersonalPlaylist.xaml;Playing.xaml;PlayingForm.xaml;Register.xaml;SongControl.xaml;UploadControl.xaml;
 
-False
+True
 
