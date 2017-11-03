@@ -18,9 +18,9 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <Image Width="170" Height="170" Source="{Binding TextImage}" Stretch="Uniform"/>
-                                <TextBlock FontWeight="Bold" FontSize="20" Foreground="White" Text="{Binding ArtistName}"/>
+                            <StackPanel Orientation="Vertical" Cursor="Hand">
+                                <Image Width="170" Height="170" Source="{Binding URLImage}" Stretch="Uniform"/>
+                                <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="{Binding FullName}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

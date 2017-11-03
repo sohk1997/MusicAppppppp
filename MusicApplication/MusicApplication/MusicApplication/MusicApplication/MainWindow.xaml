@@ -100,13 +100,19 @@
                     <Label>Bài hát</Label>
                 </DockPanel>
             </Button>
+            <Button Style="{StaticResource myButton}" Name="btnAlbum" Click="btnAlbum_Click">
+                <DockPanel>
+                    <Image Source="/Image/Menu/playlist.png"></Image>
+                    <Label>Album/Playlist</Label>
+                </DockPanel>
+            </Button>
             <Button Style="{StaticResource myButton}" Name="btnArtist" Click="btnArtist_Click">
                 <DockPanel>
                     <Image Source="/Image/Menu/singer.png"></Image>
                     <Label>Nghệ sĩ</Label>
                 </DockPanel>
             </Button>
-            <Button Style="{StaticResource myButton}">
+            <Button Style="{StaticResource myButton}" Name="myPlaylist" Click="myPlaylist_Click">
                 <DockPanel>
                     <Image Source="/Image/Menu/mymusic.png"></Image>
                     <Label>Nhạc của tôi</Label>
@@ -121,7 +127,7 @@
             <Border BorderThickness="0.5" Margin="0,15,0,0" BorderBrush="Gray"/>
         </StackPanel>
         <!--Title-->
-        <StackPanel Height="40" Background="#3D4849" DockPanel.Dock="Top" Width="942">
+        <StackPanel Height="40" Background="#3D4849" DockPanel.Dock="Top" Width="{Binding WindowWidth}">
             <TextBlock Name="textTitle" 
                        Text="TRANG CHỦ" 
                        Height="40" 

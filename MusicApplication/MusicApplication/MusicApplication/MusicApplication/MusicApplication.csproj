@@ -78,6 +78,9 @@
     <Compile Include="ArtistControl.xaml.cs">
       <DependentUpon>ArtistControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ArtistInfo.xaml.cs">
+      <DependentUpon>ArtistInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +106,10 @@
     <Compile Include="PlayingForm.xaml.cs">
       <DependentUpon>PlayingForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Playlist.cs" />
+    <Compile Include="PlaylistControl.xaml.cs">
+      <DependentUpon>PlaylistControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
@@ -115,6 +122,10 @@
     </Compile>
     <Compile Include="UploadSong.cs" />
     <Page Include="ArtistControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ArtistInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PlaylistControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +200,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.ArtistInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.FileInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -306,6 +324,17 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Singer\dongnhi.jpg" />
+    <Resource Include="Image\Singer\huongtram.jpg" />
+    <Resource Include="Image\Singer\jaykii.jpg" />
+    <Resource Include="Image\Singer\ngot.jpg" />
+    <Resource Include="Image\Singer\pmq.jpg" />
+    <Resource Include="Image\Singer\xesi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Menu\playlist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

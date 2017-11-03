@@ -11,28 +11,34 @@ namespace MusicAppService
     public class Tung_ArtistData
     {
         private string connectionString;
-        public List<Tung_Artist> loadAllArtist()
+        private readonly string urlFirst = "/Image/Singer/";
+
+        public List<ArtistInfo> LoadAllArtist()
         {
-            List<Tung_Artist> artistList = new List<Tung_Artist>();
+            List<ArtistInfo> artistList = new List<ArtistInfo>();
              connectionString = ConfigurationManager.AppSettings["connectionString"]; ;
             SqlConnection cnn = new SqlConnection(connectionString);
-            String sql = "select ID, FullName, URLImage from Singer";
+            String sql = "select ID, FullName, URLImage, Information from Singer";
             SqlCommand cmd = new SqlCommand(sql, cnn);
-            SqlDataReader reader;
+
             try
             {
                 if (cnn.State == ConnectionState.Closed)
                     cnn.Open();
-                reader = cmd.ExecuteReader();
-                Tung_Artist artist;
-                while (reader.HasRows)
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    artist = new Tung_Artist();
-                    artist.ID = reader.GetInt32(1);
-                    artist.FullName = reader.GetString(2);
-                    artist.URLImage = reader.GetString(3);
-                    artistList.Add(artist);
+                    ArtistInfo artist;
+                    while (reader.Read())
+                    {
+                        artist = new ArtistInfo();
+                        artist.ID = (int)reader["ID"];
+                        artist.FullName = reader["FullName"].ToString();
+                        artist.URLImage = urlFirst + reader["URLImage"].ToString();
+                        artist.Information = reader["Information"].ToString();
+                        artistList.Add(artist);
+                    }
                 }
+               
             }
             catch (SqlException se)
             {

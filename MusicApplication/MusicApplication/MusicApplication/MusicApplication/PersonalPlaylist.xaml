@@ -5,33 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicApplication"
              mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="808">
-    <DockPanel LastChildFill="True">
-        <Border  Width="220">
-            <StackPanel>
-                <DockPanel Height="150" Width="160">
-                    <StackPanel>
-                        <Image Source="E:\MusicApplication\MusicApplication\MusicApplication\Image\zig.jpg" Margin="0,20,0,0"></Image>
-                        <Label Content="Mastermind" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"></Label>
-                    </StackPanel>
-                </DockPanel>
-                <DockPanel Margin="0,50,0,0">
-                    <StackPanel>
-                        <Button Padding="10,0" Content="KÊNH CỦA TÔI" BorderThickness="0" HorizontalContentAlignment="Left" Width="160" Margin="0,0,0,10" FontWeight="Bold" FontSize="15"/>
-                        <Button Padding="10,0" Content="PLAYLIST CÁ NHÂN" BorderThickness="0" HorizontalContentAlignment="Left" Width="160" Margin="0,0,0,10" FontWeight="Bold" FontSize="15"/>
-                        <StackPanel>
-                            <Button Padding="10,0" Content="YÊU THÍCH" BorderThickness="0" HorizontalContentAlignment="Left" Width="160" FontWeight="Bold" FontSize="15"/>
-                            <Button Padding="10,0" Content="Bài hát" BorderThickness="0" HorizontalContentAlignment="Left" Width="160" FontSize="13"/>
-                            <Button Padding="10,0" Content="Playlist" BorderThickness="0" HorizontalContentAlignment="Left" Width="160" FontSize="13"/>
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <DockPanel LastChildFill="True" Background="#414242">
+        <StackPanel DockPanel.Dock="Top" Height="100" Background="{Binding DockPanel}">
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top"  Background="{Binding DockPanel}">
+            <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="Tạo playlist mới"/>
+            <TextBox Height="40" Width="700"
+                     HorizontalAlignment="Center" Margin="0,0,0,20"
+                     Background="#454545" Foreground="White"
+                     VerticalContentAlignment="Center" Padding="5,0,0,0" />
+            <Button Cursor="Hand" Background="#585858" Height="40" Width="60"
+                BorderThickness="0" Foreground="#FFFFFF"
+                    Content="Tạo mới" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <ListView BorderThickness="0" Background="{Binding DockPanel}" Width="900"
+                      Name="lvPlaylists" HorizontalAlignment="Left">
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Height="50">
+                            <Image Source="{Binding AlbumURLImage}" Stretch="Fill" Width="50" Margin="0,0,10,0"/>
+                            <StackPanel Orientation="Vertical" Width="250" Margin="0,0,350,0" >
+                                <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding AlbumName}"/>
+                                <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
+                            </StackPanel>
                         </StackPanel>
-                        <Button Padding="10,0" Content="NHẠC UPLOAD" BorderThickness="0" HorizontalContentAlignment="Left" Width="160" Margin="0,10,0,0" FontWeight="Bold" FontSize="15"/>
-                    </StackPanel>
-                </DockPanel>
-            </StackPanel>
-        </Border>
-        <Border Background="Aquamarine">
-            <Frame></Frame>
-        </Border>
-
+                    </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </StackPanel>
     </DockPanel>
+    
 </UserControl>

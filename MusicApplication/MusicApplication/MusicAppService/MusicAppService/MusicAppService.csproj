@@ -72,7 +72,6 @@
     <Compile Include="ITransfer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SongInfoData.cs" />
-    <Compile Include="Tung_Artist.cs" />
     <Compile Include="Tung_ArtistData.cs" />
     <Compile Include="UserInfoData.cs" />
   </ItemGroup>

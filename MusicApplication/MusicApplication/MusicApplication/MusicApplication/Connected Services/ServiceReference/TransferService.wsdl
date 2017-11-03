@@ -36,6 +36,12 @@
   <wsdl:message name="ITransfer_GetAllSong_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllSongResponse" />
   </wsdl:message>
+  <wsdl:message name="ITransfer_LoadAllArtist_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllArtist" />
+  </wsdl:message>
+  <wsdl:message name="ITransfer_LoadAllArtist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllArtistResponse" />
+  </wsdl:message>
   <wsdl:message name="ITransfer_Register_InputMessage">
     <wsdl:part name="parameters" element="tns:Register" />
   </wsdl:message>
@@ -67,6 +73,10 @@
     <wsdl:operation name="GetAllSong">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/GetAllSong" message="tns:ITransfer_GetAllSong_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/GetAllSongResponse" message="tns:ITransfer_GetAllSong_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllArtist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/LoadAllArtist" message="tns:ITransfer_LoadAllArtist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/LoadAllArtistResponse" message="tns:ITransfer_LoadAllArtist_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/Register" message="tns:ITransfer_Register_InputMessage" />
@@ -113,6 +123,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllSong">
       <soap:operation soapAction="http://tempuri.org/ITransfer/GetAllSong" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllArtist">
+      <soap:operation soapAction="http://tempuri.org/ITransfer/LoadAllArtist" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -20,34 +20,37 @@ namespace MusicApplication
     /// </summary>
     public partial class ArtistControl : UserControl
     {
+        List<ServiceReference.ArtistInfo> items = new List<ServiceReference.ArtistInfo>();
         public ArtistControl()
         {
             InitializeComponent();
-            List<Artist> items = new List<Artist>();
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-                                                                                       
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-                                                                                      
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
-            items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            ServiceReference.ITransfer service = new ServiceReference.TransferClient();
+            items = service.LoadAllArtist().ToList();
+
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
+            //items.Add(new Artist() { TextImage = @"Image/Singer/s1.jpg", ArtistName = "Noo Phước Thịnh" });
 
             lvArtists.ItemsSource = items;
         }

@@ -22,9 +22,20 @@ namespace MusicApplication
     public partial class UploadControl : UserControl
     {
         int userID;
+        List<Song> items = new List<Song>();
+ 
         public UploadControl()
         {
             InitializeComponent();
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            lvUpSongs.ItemsSource = items;
         }
 
         public int UserID { get => userID; set => userID = value; }

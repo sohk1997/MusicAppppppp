@@ -29,6 +29,10 @@ namespace MusicAppService
         {
             return new SongInfoData().GetAllSong();
         }
+        public List<ArtistInfo> LoadAllArtist()
+        {
+            return new Tung_ArtistData().LoadAllArtist();
+        }
 
         public List<SingerInformation> GetSingerInformation(string ID)
         {

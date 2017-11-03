@@ -172,6 +172,99 @@ namespace MusicApplication.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArtistInfo", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
+    [System.SerializableAttribute()]
+    public partial class ArtistInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FullNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InformationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string URLImageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FullName {
+            get {
+                return this.FullNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
+                    this.FullNameField = value;
+                    this.RaisePropertyChanged("FullName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Information {
+            get {
+                return this.InformationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InformationField, value) != true)) {
+                    this.InformationField = value;
+                    this.RaisePropertyChanged("Information");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string URLImage {
+            get {
+                return this.URLImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.URLImageField, value) != true)) {
+                    this.URLImageField = value;
+                    this.RaisePropertyChanged("URLImage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
     [System.SerializableAttribute()]
     public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -317,6 +410,12 @@ namespace MusicApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/GetAllSong", ReplyAction="http://tempuri.org/ITransfer/GetAllSongResponse")]
         System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> GetAllSongAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/LoadAllArtist", ReplyAction="http://tempuri.org/ITransfer/LoadAllArtistResponse")]
+        MusicApplication.ServiceReference.ArtistInfo[] LoadAllArtist();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/LoadAllArtist", ReplyAction="http://tempuri.org/ITransfer/LoadAllArtistResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.ArtistInfo[]> LoadAllArtistAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Register", ReplyAction="http://tempuri.org/ITransfer/RegisterResponse")]
         bool Register(MusicApplication.ServiceReference.UserInfo user);
@@ -478,6 +577,14 @@ namespace MusicApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> GetAllSongAsync() {
             return base.Channel.GetAllSongAsync();
+        }
+        
+        public MusicApplication.ServiceReference.ArtistInfo[] LoadAllArtist() {
+            return base.Channel.LoadAllArtist();
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.ArtistInfo[]> LoadAllArtistAsync() {
+            return base.Channel.LoadAllArtistAsync();
         }
         
         public bool Register(MusicApplication.ServiceReference.UserInfo user) {

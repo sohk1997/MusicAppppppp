@@ -20,9 +20,35 @@ namespace MusicApplication
     /// </summary>
     public partial class Home : UserControl
     {
+        List<Song> items = new List<Song>();
+        List<Playlist> itemsPlaylist = new List<Playlist>();
         public Home()
         {
             InitializeComponent();
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Ahihi", "Ahuhu"));
+            lvHomeSongs.ItemsSource = items;
+            
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            lvPlaylists.ItemsSource = itemsPlaylist;
+
+
         }
     }
 }

@@ -21,6 +21,9 @@ namespace MusicAppService
 
         [OperationContract]
         List<SongInfo> GetAllSong();
+        //load nghệ sĩ
+        [OperationContract]
+        List<ArtistInfo> LoadAllArtist();
 
         [OperationContract]
         bool Register(UserInfo user);
@@ -92,7 +95,7 @@ namespace MusicAppService
         public string SongName;
     }
 
-    [DataContract]
+ 
     public class SongInfo
     {
         [DataMember]
@@ -112,6 +115,19 @@ namespace MusicAppService
         [DataMember]
         public int CountingLike;
     }
+    [DataContract]
+    public class ArtistInfo
+    {
+        [DataMember]
+        public int ID;
+        [DataMember]
+        public string FullName;
+        [DataMember]
+        public string URLImage;
+        [DataMember]
+        public string Information;
+    }
+  
     [DataContract]
     public class UserInfo
     {

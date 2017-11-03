@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicApplication"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="950">
+             d:DesignHeight="700" d:DesignWidth="1000">
     <DockPanel Background="#414242">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
             <StackPanel Orientation="Horizontal">
                 <StackPanel.Resources>
                     <Style TargetType="StackPanel">
@@ -69,6 +69,25 @@
                        HorizontalContentAlignment="Center"
                        FontSize="30"
                        Margin="0,30,0,0"/>
+
+                    <ListView BorderThickness="0" Background="#414242" Name="lvUpSongs" HorizontalAlignment="Left">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
+                                    <ListViewItem>
+                                        <StackPanel Orientation="Horizontal" Height="50">
+                                            <StackPanel Orientation="Vertical" Width="300">
+                                                <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
+                                                <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
+                                                <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
+                                            </StackPanel>
+                                            <!--<Image Height="20" Source="Image/Music/add.png"/>-->
+                                        </StackPanel>
+                                    </ListViewItem>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

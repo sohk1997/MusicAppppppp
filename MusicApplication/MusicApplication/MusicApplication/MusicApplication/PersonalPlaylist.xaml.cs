@@ -20,9 +20,16 @@ namespace MusicApplication
     /// </summary>
     public partial class PersonalPlaylist : UserControl
     {
+        List<Playlist> items = new List<Playlist>();
         public PersonalPlaylist()
         {
             InitializeComponent();
+            items.Add(new Playlist("hehe", "/Image/image1.png", "0 bài hát"));
+            items.Add(new Playlist("haha", "/Image/image1.png", "4 bài hát"));
+            items.Add(new Playlist("hoho", "/Image/image1.png", "12 bài hát"));
+            items.Add(new Playlist("hihi", "/Image/image1.png", "12 bài hát"));
+   
+            lvPlaylists.ItemsSource = items;
         }
     }
 }

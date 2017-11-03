@@ -24,6 +24,8 @@ namespace MusicApplication
         private readonly string ARTIST = "NGHỆ SĨ";
         private readonly string UPLOAD = "TẢI LÊN";
         private readonly string HOME = "TRANG CHỦ";
+        private readonly string MYPLAYLIST = "NHẠC CỦA TÔI";
+        private readonly string PLAYLIST = "PLAYLIST | ALBUM";
 
 
         public MainWindow()
@@ -137,6 +139,20 @@ namespace MusicApplication
             songControl.Parrent = this;
             songControl.LoadData();
             Main.Content = songControl.Content;
+        }
+
+        private void myPlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            textTitle.Text = MYPLAYLIST;
+            PersonalPlaylist myPlaylistControl = new PersonalPlaylist();
+            Main.Content = myPlaylistControl.Content;
+        }
+
+        private void btnAlbum_Click(object sender, RoutedEventArgs e)
+        {
+            textTitle.Text = PLAYLIST;
+            PlaylistControl playlistControl = new PlaylistControl();
+            Main.Content = playlistControl.Content;
         }
     }
 }

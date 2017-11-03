@@ -19,6 +19,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SongInfo" nillable="true" type="tns:SongInfo" />
+  <xs:complexType name="ArrayOfArtistInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistInfo" nillable="true" type="tns:ArtistInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistInfo" nillable="true" type="tns:ArrayOfArtistInfo" />
+  <xs:complexType name="ArtistInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="URLImage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistInfo" nillable="true" type="tns:ArtistInfo" />
   <xs:complexType name="UserInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Age" type="xs:int" />
