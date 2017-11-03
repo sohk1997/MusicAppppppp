@@ -70,7 +70,7 @@ namespace MusicAppService
             SongInfoData data = new SongInfoData();
             int songID = data.InsertSong(song);
             AddSingerAndSong(song.Singer, songID);
-            return 1;
+            return songID;
         }
         private void AddSingerAndSong(string singer,int songID)
         {
