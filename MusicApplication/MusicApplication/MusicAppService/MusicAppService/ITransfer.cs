@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Windows.Media.Imaging;
 
 namespace MusicAppService
 {
@@ -23,7 +24,7 @@ namespace MusicAppService
         List<SongInfo> GetAllSong();
         //load nghệ sĩ
         [OperationContract]
-        List<ArtistInfo> LoadAllArtist();
+        ListArtist LoadAllArtist(DownloadRequest request);
 
         [OperationContract]
         bool Register(UserInfo user);
@@ -38,22 +39,22 @@ namespace MusicAppService
         List<SongInfo> FindSongLikeName(string name);
     }
 
-    [MessageContract]
+    [DataContract]
     public class SingerInformation
     {
-        [MessageHeader(MustUnderstand = true)]
+        [DataMember]
         string Name;
 
-        [MessageHeader(MustUnderstand = true)]
+        [DataMember]
         string FullName;
 
-        [MessageBodyMember]
+        [DataMember]
         DateTime BirthDay;
 
-        [MessageBodyMember]
+        [DataMember]
         Image Avartar;
 
-        [MessageBodyMember]
+        [DataMember]
         string Information;
     }
 
@@ -95,7 +96,7 @@ namespace MusicAppService
         public string SongName;
     }
 
- 
+    [DataContract]
     public class SongInfo
     {
         [DataMember]
@@ -115,19 +116,31 @@ namespace MusicAppService
         [DataMember]
         public int CountingLike;
     }
-    [DataContract]
+
+    [MessageContract]
     public class ArtistInfo
     {
-        [DataMember]
+        [MessageHeader(MustUnderstand = true)]
         public int ID;
-        [DataMember]
+        [MessageHeader(MustUnderstand = true)]
         public string FullName;
-        [DataMember]
+        [MessageHeader(MustUnderstand = true)]
         public string URLImage;
-        [DataMember]
+        [MessageHeader(MustUnderstand = true)]
         public string Information;
+        [MessageBodyMember(Order = 1)]
+        public BitmapImage Image;
+        [MessageBodyMember(Order = 1)]
+        public byte []RawData;
     }
-  
+
+    [MessageContract]
+    public class ListArtist
+    {
+        [MessageBodyMember(Order = 1)]
+        public List<ArtistInfo> ListOfArtist;
+    }
+
     [DataContract]
     public class UserInfo
     {

@@ -46,15 +46,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="LoadAllArtist">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoadAllArtistResponse">
+  <xs:element name="ListArtist">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="LoadAllArtistResult" nillable="true" type="q3:ArrayOfArtistInfo" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="ListOfArtist" nillable="true" type="q3:ArrayOfArtistInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
