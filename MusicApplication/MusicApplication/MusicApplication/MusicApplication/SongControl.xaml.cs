@@ -23,6 +23,7 @@ namespace MusicApplication
     {
         List<ServiceReference.SongInfo> items;
         Frame parrent;
+        PlayingForm playing = new PlayingForm();
         public SongControl()
         {
             InitializeComponent();
@@ -54,20 +55,28 @@ namespace MusicApplication
         }
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            lvSongs.SelectedItem = sender;
             StackPanel panel = (StackPanel)sender;
-            PlayingForm playing = new PlayingForm();
+            
             TextBlock block = (TextBlock)panel.Children[0];
             playing.Items = items;
-            playing.SongID = "S" + block.Text;
+            playing.SongID = "S" + block.Text;          
             playing.Parent1 = parrent;
-            playing.SetRenderEvent();
-            parrent.Content = playing.Content;
+            playing.SetRenderEvent();                    
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             PlaylistPopup plPopup = new PlaylistPopup();
             plPopup.ShowDialog();
+        }
+
+        private void lvSongs_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            int index = lvSongs.SelectedIndex;
+            playing.SelectedIndex = index;
+            playing.LoadData();
+            parrent.Content = playing.Content;
         }
     }
 }

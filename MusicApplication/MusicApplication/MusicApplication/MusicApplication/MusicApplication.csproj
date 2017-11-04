@@ -383,5 +383,8 @@
   <ItemGroup>
     <Resource Include="Image\view2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Buffer\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

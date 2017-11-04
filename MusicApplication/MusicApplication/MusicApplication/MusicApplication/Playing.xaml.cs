@@ -35,7 +35,7 @@ namespace MusicApplication
                 listData.Add(i.ToString());
             }
             lbSongs.ItemsSource = listData;
-            player = new MusicPlayer(SongID, slPlay);
+            player = new MusicPlayer(SongID);
             timer = new Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Tick;

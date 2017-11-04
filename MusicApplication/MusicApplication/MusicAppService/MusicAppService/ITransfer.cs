@@ -42,24 +42,7 @@ namespace MusicAppService
         List<SongInfo> FindSongOfSinger(string name);
     }
 
-    [DataContract]
-    public class SingerInformation
-    {
-        [DataMember]
-        string Name;
-
-        [DataMember]
-        string FullName;
-
-        [DataMember]
-        DateTime BirthDay;
-
-        [DataMember]
-        Image Avartar;
-
-        [DataMember]
-        string Information;
-    }
+    
 
     [MessageContract]
     public class FileInfo : IDisposable
