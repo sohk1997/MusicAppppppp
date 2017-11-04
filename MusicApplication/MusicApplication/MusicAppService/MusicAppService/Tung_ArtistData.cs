@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Windows.Media.Imaging;
 
 namespace MusicAppService
 {
     public class Tung_ArtistData
     {
         private string connectionString;
-        private readonly string urlFirst = "/Image/Singer/";
+        private readonly string urlFirst = ConfigurationManager.AppSettings["imageURL"];
 
         public List<ArtistInfo> LoadAllArtist()
         {
+<<<<<<< HEAD
 
             List<ArtistInfo> artistList = new List<ArtistInfo>();
              connectionString = ConfigurationManager.AppSettings["connectionString"]; ;
+=======
+            List<ArtistInfo> artistList = new List<ArtistInfo>();
+            connectionString = ConfigurationManager.AppSettings["connectionString"];
+
+>>>>>>> 4b9afabd7bf56931d74dbdf5e534edde27ae8013
             SqlConnection cnn = new SqlConnection(connectionString);
             String sql = "select ID, FullName, URLImage, Information from Singer";
             SqlCommand cmd = new SqlCommand(sql, cnn);
@@ -36,10 +45,18 @@ namespace MusicAppService
                         artist.FullName = reader["FullName"].ToString();
                         artist.URLImage = urlFirst + reader["URLImage"].ToString();
                         artist.Information = reader["Information"].ToString();
+                        try
+                        {
+                            artist.RawData = File.ReadAllBytes(urlFirst + @"\" + artist.ID + ".jpg");
+                        }
+                        catch
+                        {
+                            artist.RawData = File.ReadAllBytes(urlFirst + @"\0.jpg");
+                        }
                         artistList.Add(artist);
                     }
                 }
-               
+
             }
             catch (SqlException se)
             {

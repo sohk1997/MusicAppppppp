@@ -29,15 +29,13 @@ namespace MusicAppService
         {
             return new SongInfoData().GetAllSong();
         }
-        public List<ArtistInfo> LoadAllArtist()
+        public ListArtist LoadAllArtist(DownloadRequest request)
         {
-            return new Tung_ArtistData().LoadAllArtist();
+            ListArtist list = new ListArtist();
+            list.ListOfArtist = new Tung_ArtistData().LoadAllArtist();
+            return list;
         }
 
-        public List<SingerInformation> GetSingerInformation(string ID)
-        {
-            throw new NotImplementedException();
-        }
 
         public string Login(string username, string password)
         {

@@ -1,0 +1,9 @@
+diff a/MusicApplication/MusicApplication/MusicAppService/MusicAppService/Tung_ArtistData.cs b/MusicApplication/MusicApplication/MusicAppService/MusicAppService/Tung_ArtistData.cs	(rejected hunks)
+@@ -15,7 +15,6 @@
+ 
+         public List<ArtistInfo> LoadAllArtist()
+         {
+-<<<<<<< HEAD
+ 
+             List<ArtistInfo> artistList = new List<ArtistInfo>();
+              connectionString = ConfigurationManager.AppSettings["connectionString"]; ;

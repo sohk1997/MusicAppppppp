@@ -186,7 +186,13 @@ namespace MusicApplication.ServiceReference {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Windows.Media.Imaging.BitmapImage ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string InformationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RawDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string URLImageField;
@@ -228,6 +234,19 @@ namespace MusicApplication.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Windows.Media.Imaging.BitmapImage Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Information {
             get {
                 return this.InformationField;
@@ -236,6 +255,19 @@ namespace MusicApplication.ServiceReference {
                 if ((object.ReferenceEquals(this.InformationField, value) != true)) {
                     this.InformationField = value;
                     this.RaisePropertyChanged("Information");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RawData {
+            get {
+                return this.RawDataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RawDataField, value) != true)) {
+                    this.RawDataField = value;
+                    this.RaisePropertyChanged("RawData");
                 }
             }
         }
@@ -411,11 +443,12 @@ namespace MusicApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/GetAllSong", ReplyAction="http://tempuri.org/ITransfer/GetAllSongResponse")]
         System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> GetAllSongAsync();
         
+        // CODEGEN: Generating message contract since the wrapper name (DownloadRequest) of message DownloadRequest does not match the default value (LoadAllArtist)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/LoadAllArtist", ReplyAction="http://tempuri.org/ITransfer/LoadAllArtistResponse")]
-        MusicApplication.ServiceReference.ArtistInfo[] LoadAllArtist();
+        MusicApplication.ServiceReference.ListArtist LoadAllArtist(MusicApplication.ServiceReference.DownloadRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/LoadAllArtist", ReplyAction="http://tempuri.org/ITransfer/LoadAllArtistResponse")]
-        System.Threading.Tasks.Task<MusicApplication.ServiceReference.ArtistInfo[]> LoadAllArtistAsync();
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.ListArtist> LoadAllArtistAsync(MusicApplication.ServiceReference.DownloadRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Register", ReplyAction="http://tempuri.org/ITransfer/RegisterResponse")]
         bool Register(MusicApplication.ServiceReference.UserInfo user);
@@ -494,6 +527,23 @@ namespace MusicApplication.ServiceReference {
             this.Singer = Singer;
             this.SongName = SongName;
             this.FileByteStream = FileByteStream;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ListArtist", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ListArtist {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public MusicApplication.ServiceReference.ArtistInfo[] ListOfArtist;
+        
+        public ListArtist() {
+        }
+        
+        public ListArtist(MusicApplication.ServiceReference.ArtistInfo[] ListOfArtist) {
+            this.ListOfArtist = ListOfArtist;
         }
     }
     
@@ -579,12 +629,29 @@ namespace MusicApplication.ServiceReference {
             return base.Channel.GetAllSongAsync();
         }
         
-        public MusicApplication.ServiceReference.ArtistInfo[] LoadAllArtist() {
-            return base.Channel.LoadAllArtist();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MusicApplication.ServiceReference.ListArtist MusicApplication.ServiceReference.ITransfer.LoadAllArtist(MusicApplication.ServiceReference.DownloadRequest request) {
+            return base.Channel.LoadAllArtist(request);
         }
         
-        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.ArtistInfo[]> LoadAllArtistAsync() {
-            return base.Channel.LoadAllArtistAsync();
+        public MusicApplication.ServiceReference.ArtistInfo[] LoadAllArtist(string ID, string SongName) {
+            MusicApplication.ServiceReference.DownloadRequest inValue = new MusicApplication.ServiceReference.DownloadRequest();
+            inValue.ID = ID;
+            inValue.SongName = SongName;
+            MusicApplication.ServiceReference.ListArtist retVal = ((MusicApplication.ServiceReference.ITransfer)(this)).LoadAllArtist(inValue);
+            return retVal.ListOfArtist;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.ListArtist> MusicApplication.ServiceReference.ITransfer.LoadAllArtistAsync(MusicApplication.ServiceReference.DownloadRequest request) {
+            return base.Channel.LoadAllArtistAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.ListArtist> LoadAllArtistAsync(string ID, string SongName) {
+            MusicApplication.ServiceReference.DownloadRequest inValue = new MusicApplication.ServiceReference.DownloadRequest();
+            inValue.ID = ID;
+            inValue.SongName = SongName;
+            return ((MusicApplication.ServiceReference.ITransfer)(this)).LoadAllArtistAsync(inValue);
         }
         
         public bool Register(MusicApplication.ServiceReference.UserInfo user) {

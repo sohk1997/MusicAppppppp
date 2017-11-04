@@ -6,6 +6,14 @@
       <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/Message" />
       <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MusicAppService" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Animation" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.Windows" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System.Windows.Threading" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/System.Net.Cache" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ITransfer_Login_InputMessage">
@@ -36,11 +44,8 @@
   <wsdl:message name="ITransfer_GetAllSong_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllSongResponse" />
   </wsdl:message>
-  <wsdl:message name="ITransfer_LoadAllArtist_InputMessage">
-    <wsdl:part name="parameters" element="tns:LoadAllArtist" />
-  </wsdl:message>
-  <wsdl:message name="ITransfer_LoadAllArtist_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoadAllArtistResponse" />
+  <wsdl:message name="ListArtist">
+    <wsdl:part name="parameters" element="tns:ListArtist" />
   </wsdl:message>
   <wsdl:message name="ITransfer_Register_InputMessage">
     <wsdl:part name="parameters" element="tns:Register" />
@@ -75,8 +80,8 @@
       <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/GetAllSongResponse" message="tns:ITransfer_GetAllSong_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LoadAllArtist">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/LoadAllArtist" message="tns:ITransfer_LoadAllArtist_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/LoadAllArtistResponse" message="tns:ITransfer_LoadAllArtist_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/LoadAllArtist" name="DownloadRequest" message="tns:DownloadRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/LoadAllArtistResponse" name="ListArtist" message="tns:ListArtist" />
     </wsdl:operation>
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/Register" message="tns:ITransfer_Register_InputMessage" />
@@ -132,10 +137,12 @@
     </wsdl:operation>
     <wsdl:operation name="LoadAllArtist">
       <soap:operation soapAction="http://tempuri.org/ITransfer/LoadAllArtist" style="document" />
-      <wsdl:input>
+      <wsdl:input name="DownloadRequest">
+        <soap:header message="tns:DownloadRequest_Headers" part="ID" use="literal" />
+        <soap:header message="tns:DownloadRequest_Headers" part="SongName" use="literal" />
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
+      <wsdl:output name="ListArtist">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
