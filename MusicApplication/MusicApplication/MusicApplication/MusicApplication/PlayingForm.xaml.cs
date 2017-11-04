@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MusicApplication.ServiceReference;
 using WMPLib;
 
 namespace MusicApplication
@@ -23,31 +24,41 @@ namespace MusicApplication
     public partial class PlayingForm : Window
     {
         string songID;
-        List<String> listData;
         MusicPlayer player;
         Timer timer;
-
+        List<ServiceReference.SongInfo> items;
         public string SongID { get => songID; set => songID = value; }
+        public List<SongInfo> Items { get => items; set => items = value; }
+        public Frame Parent1 { get => parent; set => parent = value;  }
 
+        Frame parent;
         public PlayingForm()
         {
             InitializeComponent();
-            listData = new List<string>();
-            for (int i = 0; i < 5; i++)
-            {
-                listData.Add(i.ToString());
-            }
-            lbSongs.ItemsSource = listData;
+            lbSongs.ItemsSource = Items;
             player = new MusicPlayer(songID, slPlay);
             timer = new Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Tick;
             timer.Enabled = true;
             timer.AutoReset = true;
-            lbLength.Content = "0:00";
-            lbCurrent.Content = "0:00";
+            lbLength.Content = "00:00";
+            lbCurrent.Content = "00:00";
             this.Closing += PlayingForm_Closing;
-            //MessageBox.Show("Hello herer");
+        }
+
+        public void SetRenderEvent()
+        {
+            parent.ContentRendered += Parent1_ContentRendered;
+        }
+        private void Parent1_ContentRendered(object sender, EventArgs e)
+        {
+            if (Parent1.Content == null || !Parent1.Content.Equals(this.Content))
+            {
+                player.PlayerClass.stop();
+                player.PlayerClass.URL = "";
+                this.Close();
+            }
         }
 
         private void PlayingForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -61,22 +72,24 @@ namespace MusicApplication
             //MessageBox.Show("Hello");
             if (player.PlayerClass != null)
             {
-                if (player.PlayerClass.playState == WMPPlayState.wmppsPlaying)
+                lock (player.PlayerClass)
                 {
-                    this.Dispatcher.Invoke(() =>
+                    if (player.PlayerClass.playState == WMPPlayState.wmppsPlaying)
                     {
-                        double fraction = player.PlayerClass.currentPosition;
-                        IWMPMedia media = player.PlayerClass.newMedia(player.PlayerClass.URL);
-                        double b = media.duration;
-                        fraction = fraction / b;
-                        //MessageBox.Show("" + b);
-                        slPlay.Value = slPlay.Maximum * fraction;
-                        //MessageBox.Show(fraction + " " + slPlay.Value);
-                        lbLength.Content = media.durationString;
-                        lbCurrent.Content = player.PlayerClass.currentPositionString;
-                    });
+                        this.Dispatcher.Invoke(() =>
+                        {
+                            double fraction = player.PlayerClass.currentPosition;
+                            IWMPMedia media = player.PlayerClass.newMedia(player.PlayerClass.URL);
+                            double b = media.duration;
+                            fraction = fraction / b;
+                            //MessageBox.Show("" + b);
+                            slPlay.Value = slPlay.Maximum * fraction;
+                            //MessageBox.Show(fraction + " " + slPlay.Value);
+                            lbLength.Content = media.durationString;
+                            lbCurrent.Content = player.PlayerClass.currentPositionString;
+                        });
+                    }
                 }
-
             }
             else
             {
@@ -129,6 +142,21 @@ namespace MusicApplication
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             player.PlayerClass.currentPosition = 0;
+        }
+
+        private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

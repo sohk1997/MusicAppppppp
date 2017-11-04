@@ -21,8 +21,8 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
                     </StackPanel.Resources>
-                    <Label>Thương em hơn chính anh</Label>
-                    <Label>Jun Phạm</Label>
+                    <Label Name="Song">Thương em hơn chính anh</Label>
+                    <Label Name="lbSinger">Jun Phạm</Label>
                 </StackPanel>
                 <Ellipse Height="400" Width="400" Margin="0,0,0,50" RenderTransformOrigin="0.5, 0.5">
                     <Ellipse.Fill>
@@ -105,18 +105,22 @@
                        Background="{Binding RelativeSource={RelativeSource FindAncestor,
                     AncestorType=Control}, Path=Background}">
                 </ListView>-->
-                <ListBox x:Name="lbSongs"  Background="{Binding RelativeSource={RelativeSource FindAncestor,
+                <ListView x:Name="lbSongs"  Background="{Binding RelativeSource={RelativeSource FindAncestor,
                     AncestorType=Control}, Path=Background}">
-                    <ListBox.ItemTemplate>
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid HorizontalAlignment="Stretch">
-                                <Button Content="{Binding}">
-
-                                </Button>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal" Height="50">
+                                <StackPanel Orientation="Vertical" Width="250" Margin="0,0,350,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
+                                    <TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>
+                                    <TextBlock Foreground="Black" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
+                                    <TextBlock Foreground="Black" Margin="0,8" Text="{Binding Singer}"/>
+                                </StackPanel>
+                                <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0" MouseLeftButtonDown="Image_MouseDown" Tag="{Binding ID}"/>
+                                <Image Height="20" Source="Image/Music/add.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" />
+                            </StackPanel>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                    </ListView.ItemTemplate>
+                </ListView>
             </ScrollViewer>
         </DockPanel>
     </Grid>

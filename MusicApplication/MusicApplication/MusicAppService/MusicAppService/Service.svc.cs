@@ -92,5 +92,10 @@ namespace MusicAppService
         {
             return new SongInfoData().FindSongLikeName(name);
         }
+
+        public List<SongInfo> FindSongOfSinger(string name)
+        {
+            return new SongInfoData().GetSongOfSinger(name);
+        }
     }
 }

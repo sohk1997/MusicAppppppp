@@ -474,6 +474,12 @@ namespace MusicApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongLikeName", ReplyAction="http://tempuri.org/ITransfer/FindSongLikeNameResponse")]
         System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongLikeNameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongOfSinger", ReplyAction="http://tempuri.org/ITransfer/FindSongOfSingerResponse")]
+        MusicApplication.ServiceReference.SongInfo[] FindSongOfSinger(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongOfSinger", ReplyAction="http://tempuri.org/ITransfer/FindSongOfSingerResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongOfSingerAsync(string name);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -706,6 +712,14 @@ namespace MusicApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongLikeNameAsync(string name) {
             return base.Channel.FindSongLikeNameAsync(name);
+        }
+        
+        public MusicApplication.ServiceReference.SongInfo[] FindSongOfSinger(string name) {
+            return base.Channel.FindSongOfSinger(name);
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongOfSingerAsync(string name) {
+            return base.Channel.FindSongOfSingerAsync(name);
         }
     }
 }

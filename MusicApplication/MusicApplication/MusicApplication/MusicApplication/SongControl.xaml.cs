@@ -22,7 +22,7 @@ namespace MusicApplication
     public partial class SongControl : UserControl
     {
         List<ServiceReference.SongInfo> items;
-        MainWindow parrent;
+        Frame parrent;
         public SongControl()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace MusicApplication
             lvSongs.ItemsSource = items;
         }
 
-        public MainWindow Parrent { get => parrent; set => parrent = value; }
+        public Frame Parrent { get => parrent; set => parrent = value; }
         public List<SongInfo> Items { get => items; set => items = value; }
         public void LoadData()
         {
@@ -52,14 +52,16 @@ namespace MusicApplication
                 downloadControl.Download();
             }
         }
-
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             StackPanel panel = (StackPanel)sender;
             PlayingForm playing = new PlayingForm();
             TextBlock block = (TextBlock)panel.Children[0];
+            playing.Items = items;
             playing.SongID = "S" + block.Text;
-            playing.ShowDialog();
+            playing.Parent1 = parrent;
+            playing.SetRenderEvent();
+            parrent.Content = playing.Content;
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

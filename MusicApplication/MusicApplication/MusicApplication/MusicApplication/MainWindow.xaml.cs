@@ -33,6 +33,12 @@ namespace MusicApplication
             InitializeComponent();
             Home homeControl = new Home();
             Main.Content = homeControl.Content;
+            this.Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Main.Content = null;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -65,7 +71,7 @@ namespace MusicApplication
         {
             textTitle.Text = SONG;
             SongControl songControl = new SongControl();
-            songControl.Parrent = this;
+            songControl.Parrent = Main;
             Main.Content = songControl.Content;
 
         }
@@ -79,6 +85,7 @@ namespace MusicApplication
         {
             textTitle.Text = ARTIST;
             ArtistControl artistControl = new ArtistControl();
+            artistControl.Parrent = Main;
             Main.Content = artistControl.Content;
         }
 
@@ -136,7 +143,7 @@ namespace MusicApplication
             SongControl songControl = new SongControl();
             ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
             songControl.Items = transfer.FindSongLikeName(lbSearch.Text).ToList();
-            songControl.Parrent = this;
+            songControl.Parrent = Main;
             songControl.LoadData();
             Main.Content = songControl.Content;
         }

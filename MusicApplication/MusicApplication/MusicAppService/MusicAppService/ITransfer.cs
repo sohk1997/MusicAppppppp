@@ -37,6 +37,9 @@ namespace MusicAppService
 
         [OperationContract]
         List<SongInfo> FindSongLikeName(string name);
+
+        [OperationContract]
+        List<SongInfo> FindSongOfSinger(string name);
     }
 
     [DataContract]

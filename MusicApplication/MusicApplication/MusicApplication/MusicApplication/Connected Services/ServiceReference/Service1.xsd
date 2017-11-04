@@ -95,4 +95,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="FindSongOfSinger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindSongOfSingerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="FindSongOfSingerResult" nillable="true" type="q7:ArrayOfSongInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

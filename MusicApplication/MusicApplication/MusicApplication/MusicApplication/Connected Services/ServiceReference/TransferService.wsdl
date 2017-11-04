@@ -66,6 +66,12 @@
   <wsdl:message name="ITransfer_FindSongLikeName_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindSongLikeNameResponse" />
   </wsdl:message>
+  <wsdl:message name="ITransfer_FindSongOfSinger_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSongOfSinger" />
+  </wsdl:message>
+  <wsdl:message name="ITransfer_FindSongOfSinger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSongOfSingerResponse" />
+  </wsdl:message>
   <wsdl:portType name="ITransfer">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/Login" message="tns:ITransfer_Login_InputMessage" />
@@ -98,6 +104,10 @@
     <wsdl:operation name="FindSongLikeName">
       <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/FindSongLikeName" message="tns:ITransfer_FindSongLikeName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/FindSongLikeNameResponse" message="tns:ITransfer_FindSongLikeName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSongOfSinger">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITransfer/FindSongOfSinger" message="tns:ITransfer_FindSongOfSinger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITransfer/FindSongOfSingerResponse" message="tns:ITransfer_FindSongOfSinger_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITransfer" type="tns:ITransfer">
@@ -179,6 +189,15 @@
     </wsdl:operation>
     <wsdl:operation name="FindSongLikeName">
       <soap:operation soapAction="http://tempuri.org/ITransfer/FindSongLikeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSongOfSinger">
+      <soap:operation soapAction="http://tempuri.org/ITransfer/FindSongOfSinger" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
