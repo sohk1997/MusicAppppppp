@@ -15,13 +15,9 @@ namespace MusicAppService
 
         public List<ArtistInfo> LoadAllArtist()
         {
-<<<<<<< HEAD
+
             List<ArtistInfo> artistList = new List<ArtistInfo>();
              connectionString = ConfigurationManager.AppSettings["connectionString"]; ;
-=======
-            List<Tung_Artist> artistList = new List<Tung_Artist>();
-            connectionString = ConfigurationManager.AppSettings["connectionString"]; ;
->>>>>>> cded52c5289dbd130ab583528eab28bacd25bd3b
             SqlConnection cnn = new SqlConnection(connectionString);
             String sql = "select ID, FullName, URLImage, Information from Singer";
             SqlCommand cmd = new SqlCommand(sql, cnn);

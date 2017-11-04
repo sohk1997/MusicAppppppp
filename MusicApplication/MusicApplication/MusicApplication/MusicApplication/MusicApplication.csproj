@@ -74,6 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlbumInfo.xaml.cs">
+      <DependentUpon>AlbumInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Artist.cs" />
     <Compile Include="ArtistControl.xaml.cs">
       <DependentUpon>ArtistControl.xaml</DependentUpon>
@@ -110,6 +113,9 @@
     <Compile Include="PlaylistControl.xaml.cs">
       <DependentUpon>PlaylistControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlaylistPopup.xaml.cs">
+      <DependentUpon>PlaylistPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
@@ -121,6 +127,10 @@
       <DependentUpon>UploadControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UploadSong.cs" />
+    <Page Include="AlbumInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ArtistControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlaylistControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlaylistPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -335,6 +349,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Menu\playlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\view.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\view2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,5 +32,26 @@
         <Storyboard x:Key="imageRotation" Storyboard.TargetName="Ellipse" Storyboard.TargetProperty="RenderTransform.(RotateTransform.Angle)">
             <DoubleAnimation From="0" To="360" BeginTime="0:0:0" Duration="0:0:5" RepeatBehavior="Forever" />
         </Storyboard>
+        <DataTemplate x:Key = "listViewSong">
+            <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
+                <StackPanel Orientation="Horizontal" Height="50">
+                    <StackPanel Orientation="Vertical" Width="250" Margin="0,0,350,0">
+                        <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
+                        <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
+                        <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
+                    </StackPanel>
+                    <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0"/>
+                    <Image Height="20" Source="Image/Music/add.png"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key = "ppPopup">
+            <Border BorderBrush="Gray" BorderThickness="0,0,0,1">
+                <StackPanel Orientation="Horizontal" Height="50">
+                    <CheckBox/>
+                    <TextBlock Text="{Binding AlbumName}"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -18,7 +18,11 @@ namespace MusicApplication
             AlbumURLImage = b;
             ArtistName = c; // tạm đếm bài hát
         }
-
+        public Playlist(string a)
+        {
+            AlbumName = a;
+            
+        }
 
     }
 }

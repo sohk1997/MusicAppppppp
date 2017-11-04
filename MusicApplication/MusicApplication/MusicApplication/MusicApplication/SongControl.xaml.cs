@@ -61,5 +61,11 @@ namespace MusicApplication
             playing.SongID = "S" + block.Text;
             playing.ShowDialog();
         }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PlaylistPopup plPopup = new PlaylistPopup();
+            plPopup.ShowDialog();
+        }
     }
 }

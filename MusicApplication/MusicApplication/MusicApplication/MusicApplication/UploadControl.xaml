@@ -74,16 +74,14 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
-                                    <ListViewItem>
-                                        <StackPanel Orientation="Horizontal" Height="50">
-                                            <StackPanel Orientation="Vertical" Width="300">
-                                                <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
-                                                <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
-                                                <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
-                                            </StackPanel>
-                                            <!--<Image Height="20" Source="Image/Music/add.png"/>-->
+                                    <StackPanel Orientation="Horizontal" Height="50">
+                                        <StackPanel Orientation="Vertical" Width="300">
+                                            <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
+                                            <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
+                                            <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
                                         </StackPanel>
-                                    </ListViewItem>
+                                        <!--<Image Height="20" Source="Image/Music/add.png"/>-->
+                                    </StackPanel>
                                 </Border>
                             </DataTemplate>
                         </ListView.ItemTemplate>
