@@ -35,7 +35,6 @@ namespace MusicApplication
                 item.ContentTemplate = (DataTemplate)this.FindResource("listViewSong");
                 item.Content = s;
                 lvItems.Add(item);
-
                 lvAtistSong.ItemsSource = lvItems;
             }
             List<Playlist> playlists = new List<Playlist>();

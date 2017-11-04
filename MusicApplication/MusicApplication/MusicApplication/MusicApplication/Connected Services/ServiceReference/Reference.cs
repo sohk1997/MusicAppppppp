@@ -430,6 +430,12 @@ namespace MusicApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
         System.Threading.Tasks.Task<string> LoginAsync(string username, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
+        bool CheckDupUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
+        System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username);
+        
         // CODEGEN: Generating message contract since the wrapper name (DownloadRequest) of message DownloadRequest does not match the default value (DownloadSong)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/DownloadSong", ReplyAction="http://tempuri.org/ITransfer/DownloadSongResponse")]
         MusicApplication.ServiceReference.FileInfo DownloadSong(MusicApplication.ServiceReference.DownloadRequest request);
@@ -590,6 +596,14 @@ namespace MusicApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<string> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
+        }
+        
+        public bool CheckDupUsername(string username) {
+            return base.Channel.CheckDupUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username) {
+            return base.Channel.CheckDupUsernameAsync(username);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

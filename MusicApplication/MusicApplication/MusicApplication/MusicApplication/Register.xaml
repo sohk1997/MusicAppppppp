@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicApplication"
         mc:Ignorable="d"
-        Title="Register" Height="700" Width="800"
-        MinHeight="700" MinWidth="800"
-        MaxHeight="700" MaxWidth="800"
+        Title="Register" Height="600" Width="900"
+        MinHeight="600" MinWidth="900"
+        MaxHeight="600" MaxWidth="900"
         WindowStartupLocation="CenterScreen">
     <!-- set center screen -->
     <Grid>
@@ -44,35 +44,30 @@
                 <StackPanel>
                     <Label Content="Tên(*)"/>
                     <TextBox Name="txtName"/>
-                    <Label Name="errorName" Foreground="Red"/>
+                    <Label Width="200" Name="errorName" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Tài khoản(*)"/>
                     <TextBox Name="txtUsername"/>
-                    <Label Name="errorUsername" Foreground="Red"/>
+                    <Label Width="250" Name="errorUsername" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Mật khẩu(*)"/>
                     <PasswordBox Name="txtPassword"/>
-                    <Label Name="errorPassword" Foreground="Red"/>
+                    <Label Width="250" Name="errorPassword" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Nhập lại mật khẩu(*)"/>
                     <PasswordBox Name="txtConfirmPassword"/>
-                    <Label Name="errorConfirmPassword" Foreground="Red"/>
+                    <Label Width="250" Name="errorConfirmPassword" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Email(*)"/>
                     <TextBox Name="txtEmail"/>
-                    <Label Name="errorEmail" Foreground="Red"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="Số điện thoại"/>
-                    <TextBox Name="txtPhone"/>
-                    <Label Name="errorPhone" Foreground="Red"/>
+                    <Label Width="250" Name="errorEmail" Foreground="Red"/>
                 </StackPanel>
             </StackPanel>
-            <Button Name="btn_Register" Cursor="Hand" BorderThickness="0" Background="#585858"
+            <Button IsDefault="True" Name="btn_Register" Cursor="Hand" BorderThickness="0" Background="#585858"
                     Foreground="White" Content="Đăng ký"
                     Width="150" Height="50" Margin="0,20,0,0" Click="btn_Register_Click"></Button>
         </StackPanel>

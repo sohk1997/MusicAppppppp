@@ -80,11 +80,11 @@ namespace MusicApplication
             song.Name = txtName.Text;
             song.Writter = txtWriter.Text;
             song.Singer = txtSinger.Text;
-            song.Uploader = ""+userID;
+            song.Uploader = "" + userID;
             ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
             int id = transfer.InsertSongInfo(song);
             UploadSong uploader = new UploadSong();
-            uploader.UploadFile(""+id, txtURL.Text);
+            uploader.UploadFile(" " + id, txtURL.Text);
 
             txtName.Clear();
             txtSinger.Clear();

@@ -16,6 +16,8 @@ namespace MusicAppService
     {
         [OperationContract]
         string Login(string username, string password);
+        [OperationContract]
+        bool CheckDupUsername(string username);
 
         [OperationContract]
         FileInfo DownloadSong(DownloadRequest request);

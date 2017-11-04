@@ -42,6 +42,12 @@ namespace MusicAppService
             UserInfoData userInfoData = new UserInfoData();
             return userInfoData.checkLogin(username, password);
         }
+        public bool CheckDupUsername(string username)
+        {
+            UserInfoData userInfoData = new UserInfoData();
+            return userInfoData.CheckDupUsername(username);
+        }
+
         public bool Register(UserInfo user)
         {
             UserInfoData userInfoData = new UserInfoData();
