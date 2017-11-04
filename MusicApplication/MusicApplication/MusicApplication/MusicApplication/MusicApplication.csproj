@@ -223,10 +223,16 @@
     <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.ListArtist.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.Playlist.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.SongInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.UploadSongResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.UserInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference\Service.xsd">
@@ -382,6 +388,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\view2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Buffer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\playListicon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\songicon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

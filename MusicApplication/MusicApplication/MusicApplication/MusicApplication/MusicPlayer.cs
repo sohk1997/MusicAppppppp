@@ -14,27 +14,28 @@ namespace MusicApplication
     class MusicPlayer
     {
         WMPLib.WindowsMediaPlayerClass playerClass;
+        private string savePath = @"Buffer";
         string songID;
-        System.Windows.Controls.Slider slider;
-        public MusicPlayer(string songID, System.Windows.Controls.Slider slider)
+        public MusicPlayer(string songID)
         {
             this.playerClass = new WindowsMediaPlayerClass();
             SongID = songID;
-            this.Slider = slider;
-            //Thread thread = new Thread(new ThreadStart(UpdateSlider));
         }
 
         public WindowsMediaPlayerClass PlayerClass { get => playerClass; set => playerClass = value; }
         public string SongID { get => songID; set => songID = value; }
-        public Slider Slider { get => slider; set => slider = value; }
 
+        public void CreateNew()
+        {
+            playerClass = new WindowsMediaPlayerClass();
+        }
         public void Play()
         {
-
-            playerClass = new WindowsMediaPlayerClass();
             DownloadTEMP(SongID);
-            playerClass.URL = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "buffer.mp3");
+            playerClass.URL = Path.Combine(savePath, "buffer.mp3");
             playerClass.play();
+            //IWMPMedia media = playerClass.newMedia(playerClass.URL);
+            //MessageBox.Show(media.durationString);
         }
         private void DownloadTEMP(string id)
         {
@@ -48,8 +49,11 @@ namespace MusicApplication
             fileInfo = client.DownloadSong(request);
             FileStream outputStream = null;
             Stream inputStream = fileInfo.FileByteStream;
-            string filePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "buffer.mp3");
-            //MessageBox.Show(filePath);
+            string filePath = System.IO.Path.Combine(savePath, "buffer.mp3");
+            if (!System.IO.Directory.Exists(savePath))
+            {
+                System.IO.Directory.CreateDirectory(savePath);
+            }
             using (outputStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
                 byte[] buffer = new byte[bufferLength];
@@ -62,18 +66,14 @@ namespace MusicApplication
                 inputStream.Close();
             }
         }
-        private void UpdateSlider()
+        public void Stop()
         {
-            while (true)
+            playerClass.stop();
+            playerClass.URL = "";
+            string filePath = System.IO.Path.Combine(savePath, "buffer.mp3");
+            if (File.Exists(filePath))
             {
-                if (playerClass != null)
-                {
-                    Slider.Value = Slider.Value + 1;
-                }
-                else
-                {
-                    Slider.Value = 0;
-                }
+                File.Delete(filePath);
             }
         }
     }

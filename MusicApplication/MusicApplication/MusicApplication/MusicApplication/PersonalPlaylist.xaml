@@ -11,24 +11,23 @@
         </StackPanel>
         <StackPanel DockPanel.Dock="Top"  Background="{Binding DockPanel}">
             <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="Tạo playlist mới"/>
-            <TextBox Height="40" Width="700"
+            <TextBox x:Name="txtName" Height="40" Width="700"
                      HorizontalAlignment="Center" Margin="0,0,0,20"
                      Background="#454545" Foreground="White"
                      VerticalContentAlignment="Center" Padding="5,0,0,0" />
             <Button Cursor="Hand" Background="#585858" Height="40" Width="60"
                 BorderThickness="0" Foreground="#FFFFFF"
-                    Content="Tạo mới" HorizontalAlignment="Center"/>
+                    Content="Tạo mới" HorizontalAlignment="Center" Click="Button_Click"/>
         </StackPanel>
         <StackPanel DockPanel.Dock="Top">
             <ListView BorderThickness="0" Background="{Binding DockPanel}" Width="900"
-                      Name="lvPlaylists" HorizontalAlignment="Left">
+                      Name="lvPlaylists" HorizontalAlignment="Left" SelectionChanged="lvPlaylists_SelectionChanged" >
             <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Height="50">
-                            <Image Source="{Binding AlbumURLImage}" Stretch="Fill" Width="50" Margin="0,0,10,0"/>
+                        <StackPanel Orientation="Horizontal" Height="50" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" >
+                            <Image Source="Image/playListicon.jpg" Stretch="Fill" Width="50" Margin="0,0,10,0" Tag="{Binding ID}"/>
                             <StackPanel Orientation="Vertical" Width="250" Margin="0,0,350,0" >
-                                <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding AlbumName}"/>
-                                <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
+                                <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

@@ -7,8 +7,22 @@
         mc:Ignorable="d"
         Title="PlaylistPopup" Height="300" Width="300">
     <Grid>
-        <ListView Name="playlists">
-            
-        </ListView>
+        <DockPanel LastChildFill="True" Background="#414242">
+            <StackPanel DockPanel.Dock="Top">
+                <ListView BorderThickness="0" Background="{Binding DockPanel}" Width="250"
+                      Name="lvPlaylists" HorizontalAlignment="Left" SelectionChanged="lvPlaylists_SelectionChanged" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="50">
+                                <Image Source="Image/playListicon.jpg" Stretch="Fill" Width="50" Margin="0,0,10,0"/>
+                                <StackPanel Orientation="Vertical" Width="250" Margin="0,0,350,0" >
+                                    <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

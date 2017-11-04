@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MusicApplication.ServiceReference;
 
 namespace MusicApplication
 {
@@ -26,20 +27,20 @@ namespace MusicApplication
         //truyền Name sang Main
         public string nameUser = "";
         public bool isChanged = true;
-        //truyền Name sang Main
-        
-        
+        private ServiceReference.UserInfo user;
+
+        public UserInfo User { get => user; set => user = value; }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string username = tbLoginName.Text;
             string password = tbPassword.Password;
             ServiceReference.ITransfer service = new ServiceReference.TransferClient();
-            string name = service.Login(username, password);
-            if (name != "") // có giá trị sẽ thông báo thành công
+            user = service.Login(username, password);
+            if (user.Name != null && user.Name.Length != 0) // có giá trị sẽ thông báo thành công
             {
                 this.Close();
-                nameUser = name;
+                nameUser = user.Name;
                 invalidText.Text = "";
                 isChanged = true;
                 MessageBox.Show("Đăng nhập thành công");

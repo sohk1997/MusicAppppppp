@@ -15,6 +15,147 @@ namespace MusicApplication.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
+    [System.SerializableAttribute()]
+    public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((this.AgeField.Equals(value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SongInfo", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
     [System.SerializableAttribute()]
     public partial class SongInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -297,30 +438,21 @@ namespace MusicApplication.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Playlist", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
     [System.SerializableAttribute()]
-    public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Playlist : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AgeField;
+        private string CreatorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
+        private string IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhoneNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UsernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -333,27 +465,27 @@ namespace MusicApplication.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Age {
+        public string Creator {
             get {
-                return this.AgeField;
+                return this.CreatorField;
             }
             set {
-                if ((this.AgeField.Equals(value) != true)) {
-                    this.AgeField = value;
-                    this.RaisePropertyChanged("Age");
+                if ((object.ReferenceEquals(this.CreatorField, value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
+        public string ID {
             get {
-                return this.EmailField;
+                return this.IDField;
             }
             set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
@@ -367,45 +499,6 @@ namespace MusicApplication.ServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PhoneNumber {
-            get {
-                return this.PhoneNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
-                    this.PhoneNumberField = value;
-                    this.RaisePropertyChanged("PhoneNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Username {
-            get {
-                return this.UsernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
-                    this.UsernameField = value;
-                    this.RaisePropertyChanged("Username");
                 }
             }
         }
@@ -425,10 +518,10 @@ namespace MusicApplication.ServiceReference {
     public interface ITransfer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
-        string Login(string username, string password);
+        MusicApplication.ServiceReference.UserInfo Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
-        System.Threading.Tasks.Task<string> LoginAsync(string username, string password);
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
         bool CheckDupUsername(string username);
@@ -480,6 +573,36 @@ namespace MusicApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongLikeName", ReplyAction="http://tempuri.org/ITransfer/FindSongLikeNameResponse")]
         System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongLikeNameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongOfSinger", ReplyAction="http://tempuri.org/ITransfer/FindSongOfSingerResponse")]
+        MusicApplication.ServiceReference.SongInfo[] FindSongOfSinger(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/FindSongOfSinger", ReplyAction="http://tempuri.org/ITransfer/FindSongOfSingerResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongOfSingerAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/GetPlaylistByUserID", ReplyAction="http://tempuri.org/ITransfer/GetPlaylistByUserIDResponse")]
+        MusicApplication.ServiceReference.Playlist[] GetPlaylistByUserID(string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/GetPlaylistByUserID", ReplyAction="http://tempuri.org/ITransfer/GetPlaylistByUserIDResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.Playlist[]> GetPlaylistByUserIDAsync(string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/AddPlaylist", ReplyAction="http://tempuri.org/ITransfer/AddPlaylistResponse")]
+        int AddPlaylist(MusicApplication.ServiceReference.Playlist playlist);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/AddPlaylist", ReplyAction="http://tempuri.org/ITransfer/AddPlaylistResponse")]
+        System.Threading.Tasks.Task<int> AddPlaylistAsync(MusicApplication.ServiceReference.Playlist playlist);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/AddSongToPlaylist", ReplyAction="http://tempuri.org/ITransfer/AddSongToPlaylistResponse")]
+        int AddSongToPlaylist(string songID, string playlistID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/AddSongToPlaylist", ReplyAction="http://tempuri.org/ITransfer/AddSongToPlaylistResponse")]
+        System.Threading.Tasks.Task<int> AddSongToPlaylistAsync(string songID, string playlistID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/GetSongOfPlaylist", ReplyAction="http://tempuri.org/ITransfer/GetSongOfPlaylistResponse")]
+        MusicApplication.ServiceReference.SongInfo[] GetSongOfPlaylist(string playlistID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/GetSongOfPlaylist", ReplyAction="http://tempuri.org/ITransfer/GetSongOfPlaylistResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> GetSongOfPlaylistAsync(string playlistID);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -590,11 +713,11 @@ namespace MusicApplication.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string Login(string username, string password) {
+        public MusicApplication.ServiceReference.UserInfo Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
         
-        public System.Threading.Tasks.Task<string> LoginAsync(string username, string password) {
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
         }
         
@@ -720,6 +843,46 @@ namespace MusicApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongLikeNameAsync(string name) {
             return base.Channel.FindSongLikeNameAsync(name);
+        }
+        
+        public MusicApplication.ServiceReference.SongInfo[] FindSongOfSinger(string name) {
+            return base.Channel.FindSongOfSinger(name);
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> FindSongOfSingerAsync(string name) {
+            return base.Channel.FindSongOfSingerAsync(name);
+        }
+        
+        public MusicApplication.ServiceReference.Playlist[] GetPlaylistByUserID(string userID) {
+            return base.Channel.GetPlaylistByUserID(userID);
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.Playlist[]> GetPlaylistByUserIDAsync(string userID) {
+            return base.Channel.GetPlaylistByUserIDAsync(userID);
+        }
+        
+        public int AddPlaylist(MusicApplication.ServiceReference.Playlist playlist) {
+            return base.Channel.AddPlaylist(playlist);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddPlaylistAsync(MusicApplication.ServiceReference.Playlist playlist) {
+            return base.Channel.AddPlaylistAsync(playlist);
+        }
+        
+        public int AddSongToPlaylist(string songID, string playlistID) {
+            return base.Channel.AddSongToPlaylist(songID, playlistID);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddSongToPlaylistAsync(string songID, string playlistID) {
+            return base.Channel.AddSongToPlaylistAsync(songID, playlistID);
+        }
+        
+        public MusicApplication.ServiceReference.SongInfo[] GetSongOfPlaylist(string playlistID) {
+            return base.Channel.GetSongOfPlaylist(playlistID);
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> GetSongOfPlaylistAsync(string playlistID) {
+            return base.Channel.GetSongOfPlaylistAsync(playlistID);
         }
     }
 }

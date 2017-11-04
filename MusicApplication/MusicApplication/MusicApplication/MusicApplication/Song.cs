@@ -21,6 +21,6 @@ namespace MusicApplication
             SongName = sName;
             ArtistName = aName;
         }
-        
+
     }
 }

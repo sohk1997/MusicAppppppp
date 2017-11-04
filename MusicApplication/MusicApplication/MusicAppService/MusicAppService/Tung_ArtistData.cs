@@ -19,11 +19,10 @@ namespace MusicAppService
         public List<ArtistInfo> LoadAllArtist()
         {
             List<ArtistInfo> artistList = new List<ArtistInfo>();
-             connectionString = ConfigurationManager.AppSettings["connectionString"]; ;
+            connectionString = ConfigurationManager.AppSettings["connectionString"];
             SqlConnection cnn = new SqlConnection(connectionString);
             String sql = "select ID, FullName, URLImage, Information from Singer";
             SqlCommand cmd = new SqlCommand(sql, cnn);
-
             try
             {
                 if (cnn.State == ConnectionState.Closed)

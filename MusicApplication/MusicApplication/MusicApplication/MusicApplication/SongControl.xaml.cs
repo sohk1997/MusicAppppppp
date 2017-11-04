@@ -22,7 +22,9 @@ namespace MusicApplication
     public partial class SongControl : UserControl
     {
         List<ServiceReference.SongInfo> items;
-        MainWindow parrent;
+        Frame parrent;
+        PlayingForm playing = new PlayingForm();
+        string userId = "";
         public SongControl()
         {
             InitializeComponent();
@@ -31,8 +33,10 @@ namespace MusicApplication
             lvSongs.ItemsSource = items;
         }
 
-        public MainWindow Parrent { get => parrent; set => parrent = value; }
+        public Frame Parrent { get => parrent; set => parrent = value; }
         public List<SongInfo> Items { get => items; set => items = value; }
+        public string UserId { get => userId; set => userId = value; }
+
         public void LoadData()
         {
             lvSongs.ItemsSource = items;
@@ -52,20 +56,50 @@ namespace MusicApplication
                 downloadControl.Download();
             }
         }
-
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            lvSongs.SelectedItem = sender;
             StackPanel panel = (StackPanel)sender;
-            PlayingForm playing = new PlayingForm();
+            
             TextBlock block = (TextBlock)panel.Children[0];
-            playing.SongID = "S" + block.Text;
-            playing.ShowDialog();
+            playing.Items = items;
+            playing.SongID = "S" + block.Text;          
+            playing.Parent1 = parrent;
+            playing.SetRenderEvent();
+            int index = lvSongs.SelectedIndex;
+            if (index == -1)
+            {
+                index = 0;
+            }
+            playing.SelectedIndex = index;
+            playing.LoadData();
+            parrent.Content = playing.Content;
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if(userId == null || userId.Length == 0)
+            {
+                MessageBox.Show("Please login to add song to playlist.");
+                return;
+            }
             PlaylistPopup plPopup = new PlaylistPopup();
+            System.Windows.Controls.Image image = (System.Windows.Controls.Image)sender;
+            plPopup.SongID = image.Tag.ToString();
+            plPopup.LoadData(userId);
             plPopup.ShowDialog();
+        }
+
+        private void lvSongs_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            int index = lvSongs.SelectedIndex;
+            if(index == -1)
+            {
+                index = 0;
+            }
+            playing.SelectedIndex = index;
+            playing.LoadData();
+            
         }
     }
 }

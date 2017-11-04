@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MusicApplication.ServiceReference;
 using WMPLib;
 
 namespace MusicApplication
@@ -23,64 +24,106 @@ namespace MusicApplication
     public partial class PlayingForm : Window
     {
         string songID;
-        List<String> listData;
         MusicPlayer player;
         Timer timer;
-
+        List<ServiceReference.SongInfo> items;
+        int selectedIndex;
+        bool byTimer = false;
+        double duration;
+        string durationString;
         public string SongID { get => songID; set => songID = value; }
+        public List<SongInfo> Items { get => items; set => items = value; }
+        public Frame Parent1 { get => parent; set => parent = value; }
+        public int SelectedIndex { get => selectedIndex; set => selectedIndex = value; }
 
+        Frame parent;
         public PlayingForm()
         {
             InitializeComponent();
-            listData = new List<string>();
-            for (int i = 0; i < 5; i++)
-            {
-                listData.Add(i.ToString());
-            }
-            lbSongs.ItemsSource = listData;
-            player = new MusicPlayer(songID, slPlay);
+            player = new MusicPlayer(songID);
             timer = new Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Tick;
             timer.Enabled = true;
             timer.AutoReset = true;
-            lbLength.Content = "0:00";
-            lbCurrent.Content = "0:00";
+            lbLength.Content = "00:00";
+            lbCurrent.Content = "00:00";
             this.Closing += PlayingForm_Closing;
-            //MessageBox.Show("Hello herer");
+        }
+
+
+
+        private void PlayerClass_PlayStateChange(int NewState)
+        {
+            if (player.PlayerClass.playState == WMPPlayState.wmppsMediaEnded)
+            {
+                MessageBox.Show("End");
+                selectedIndex = (selectedIndex + 1) % items.Count;
+                ChangeSelectedIndex();
+            }
+            if (player.PlayerClass.playState == WMPPlayState.wmppsPlaying)
+            {
+                durationString = player.PlayerClass.currentMedia.durationString;
+                //MessageBox.Show(durationString);
+                duration = player.PlayerClass.currentMedia.duration;
+                //MessageBox.Show(duration + "");
+            }
+        }
+
+        public void LoadData()
+        {
+            if(items == null)
+            {
+                return;
+            }
+            lbSongs.ItemsSource = Items;
+            lbSinger.Content = items.ElementAt(SelectedIndex).Singer;
+            lbSong.Content = items.ElementAt(SelectedIndex).Name;
+        }
+        public void SetRenderEvent()
+        {
+            parent.ContentRendered += Parent1_ContentRendered;
+        }
+        private void Parent1_ContentRendered(object sender, EventArgs e)
+        {
+            if (Parent1.Content == null || !Parent1.Content.Equals(this.Content))
+            {
+                player.Stop();
+                this.Close();
+            }
         }
 
         private void PlayingForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            player.PlayerClass.stop();
-            player.PlayerClass.URL = "";
+            player.Stop();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //MessageBox.Show("Hello");
             if (player.PlayerClass != null)
             {
                 if (player.PlayerClass.playState == WMPPlayState.wmppsPlaying)
                 {
                     this.Dispatcher.Invoke(() =>
                     {
+                        byTimer = true;
                         double fraction = player.PlayerClass.currentPosition;
-                        IWMPMedia media = player.PlayerClass.newMedia(player.PlayerClass.URL);
-                        double b = media.duration;
-                        fraction = fraction / b;
-                        //MessageBox.Show("" + b);
-                        slPlay.Value = slPlay.Maximum * fraction;
-                        //MessageBox.Show(fraction + " " + slPlay.Value);
-                        lbLength.Content = media.durationString;
+                        fraction = fraction / duration;
+                        if (duration > 0)
+                        {
+                            slPlay.Value = slPlay.Maximum * fraction;
+                        }
+                        //MessageBox.Show(player.PlayerClass.currentMedia.durationString);
                         lbCurrent.Content = player.PlayerClass.currentPositionString;
+                        lbLength.Content = player.PlayerClass.currentMedia.durationString;
+                        //lbSong.Content = player.PlayerClass.currentMedia.durationString;
                     });
-                }
 
+                }
             }
             else
             {
-                MessageBox.Show("Here");
+                //MessageBox.Show("Here");
                 this.Dispatcher.Invoke(() =>
                 {
                     slPlay.Value = 0;
@@ -90,12 +133,6 @@ namespace MusicApplication
             }
         }
 
-        public PlayingForm(WindowsMediaPlayerClass playerClass, string SongID)
-        {
-            this.songID = SongID;
-        }
-
-
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
@@ -103,12 +140,11 @@ namespace MusicApplication
             btnPlay.Margin = new Thickness(0);
             btnStop.Width = 70;
             btnStop.Margin = new Thickness(15, 0, 15, 0);
-            //MessageBox.Show("" + player.PlayerClass.playState);
+            player.SongID = songID;
             if (player.PlayerClass.playState != WMPPlayState.wmppsPaused)
             {
-                //MessageBox.Show("Get in");
-                SongID = "S1";
-                player.SongID = songID;
+                player.CreateNew();
+                player.PlayerClass.PlayStateChange += PlayerClass_PlayStateChange;
                 player.Play();
             }
             else
@@ -130,5 +166,59 @@ namespace MusicApplication
         {
             player.PlayerClass.currentPosition = 0;
         }
+        
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            selectedIndex = (selectedIndex + 1) % items.Count;
+            ChangeSelectedIndex();
+        }
+
+        private void lbSongs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedIndex = lbSongs.SelectedIndex;
+            ChangeSelectedIndex();
+        }
+        private void ChangeSelectedIndex()
+        {
+            lbSinger.Content = items.ElementAt(SelectedIndex).Singer;
+            lbSong.Content = items.ElementAt(SelectedIndex).Name;
+            player.Stop();
+            SongID = "S" + items.ElementAt(selectedIndex).ID;
+            player.SongID = SongID;
+            player.CreateNew();
+            player.PlayerClass.PlayStateChange += PlayerClass_PlayStateChange;
+            player.Play();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            selectedIndex = (items.Count + selectedIndex - 1) % items.Count;
+            ChangeSelectedIndex();
+        }
+
+        private void slPlay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (byTimer)
+            {
+                byTimer = false;
+                return;
+            }
+            if (player.PlayerClass.URL.Length > 0)
+            {
+                double fraction = player.PlayerClass.currentPosition;
+                fraction = fraction / duration;
+                if (slPlay.Value != slPlay.Maximum * fraction)
+                {
+                    player.PlayerClass.currentPosition = slPlay.Value / slPlay.Maximum * duration;
+                }
+            }
+            else
+            {
+                // MessageBox.Show("Don't have");
+                slPlay.Value = 0;
+            }
+        }
+
     }
 }

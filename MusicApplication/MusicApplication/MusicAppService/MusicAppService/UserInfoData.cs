@@ -11,12 +11,12 @@ namespace MusicAppService
     public class UserInfoData
     {
         private string connectionString;
-        public string checkLogin(string username, string password)
+        public UserInfo checkLogin(string username, string password)
         {
-            string name = "";
+            UserInfo user = new UserInfo();
             connectionString = ConfigurationManager.AppSettings["connectionString"];
             SqlConnection cnn = new SqlConnection(connectionString);
-            string query = "SELECT Name, [Password] FROM [User] " +
+            string query = "SELECT ID , Name, [Password] FROM [User] " +
                 "WHERE Username = @Username";
             SqlCommand cmd = new SqlCommand(query, cnn);
             cmd.Parameters.AddWithValue("@Username", username);
@@ -30,7 +30,8 @@ namespace MusicAppService
                         string realPassword = myReader["Password"].ToString();
                         if (realPassword.Equals(password))
                         {
-                            name = myReader["Name"].ToString();
+                            user.Name = myReader["Name"].ToString();
+                            user.ID = myReader["ID"].ToString();
                         }
                     }
                 }
@@ -43,7 +44,7 @@ namespace MusicAppService
             {
                 cnn.Close();
             }
-            return name;
+            return user;
         }
 
         public bool registerAccount(UserInfo user)
@@ -59,7 +60,7 @@ namespace MusicAppService
             cmd.Parameters.AddWithValue("@Email", user.Email);
             try
             {
-                    cnn.Open();
+                cnn.Open();
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     check = true;

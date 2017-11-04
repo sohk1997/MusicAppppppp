@@ -18,8 +18,8 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical" Cursor="Hand">
-                                <Image Width="170" Height="170" Source="{Binding Path=Image}" Stretch="Uniform"/>
+                            <StackPanel Orientation="Vertical" Cursor="Hand" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" >
+                                <Image Width="170" Height="170" Source="{Binding Path=Image,IsAsync=True}" Stretch="Uniform"/>
                                 <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="{Binding FullName}"/>
                             </StackPanel>
                         </DataTemplate>

@@ -15,16 +15,20 @@ namespace MusicAppService
     public interface ITransfer
     {
         [OperationContract]
+<<<<<<< HEAD
         string Login(string username, string password);
         [OperationContract]
         bool CheckDupUsername(string username);
+=======
+        UserInfo Login(string username, string password);
+>>>>>>> 43a4ff1610ab02af3edfeb8e780753c0827da285
 
         [OperationContract]
         FileInfo DownloadSong(DownloadRequest request);
 
         [OperationContract]
         List<SongInfo> GetAllSong();
-        //load nghệ sĩ
+
         [OperationContract]
         ListArtist LoadAllArtist(DownloadRequest request);
 
@@ -39,25 +43,32 @@ namespace MusicAppService
 
         [OperationContract]
         List<SongInfo> FindSongLikeName(string name);
+
+        [OperationContract]
+        List<SongInfo> FindSongOfSinger(string name);
+
+        [OperationContract]
+        List<Playlist> GetPlaylistByUserID(string userID);
+
+        [OperationContract]
+        int AddPlaylist(Playlist playlist);
+
+        [OperationContract]
+        int AddSongToPlaylist(string songID, string playlistID);
+
+        [OperationContract]
+        List<SongInfo> GetSongOfPlaylist(string playlistID);
     }
 
     [DataContract]
-    public class SingerInformation
+    public class Playlist
     {
         [DataMember]
-        string Name;
-
+        public string ID;
         [DataMember]
-        string FullName;
-
+        public string Name;
         [DataMember]
-        DateTime BirthDay;
-
-        [DataMember]
-        Image Avartar;
-
-        [DataMember]
-        string Information;
+        public string Creator;
     }
 
     [MessageContract]
@@ -146,6 +157,8 @@ namespace MusicAppService
     [DataContract]
     public class UserInfo
     {
+        [DataMember]
+        public string ID;
         [DataMember]
         public string Name;
         [DataMember]

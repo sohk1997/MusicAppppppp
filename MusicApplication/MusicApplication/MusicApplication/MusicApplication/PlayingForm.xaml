@@ -21,8 +21,8 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
                     </StackPanel.Resources>
-                    <Label>Thương em hơn chính anh</Label>
-                    <Label>Jun Phạm</Label>
+                    <Label Name="lbSong">Thương em hơn chính anh</Label>
+                    <Label Name="lbSinger" >Jun Phạm</Label>
                 </StackPanel>
                 <Ellipse Height="400" Width="400" Margin="0,0,0,50" RenderTransformOrigin="0.5, 0.5">
                     <Ellipse.Fill>
@@ -47,7 +47,7 @@
                     <Label x:Name="lbCurrent" Content="0:00" HorizontalContentAlignment="Right"/>
                     <Slider x:Name="slPlay" Width="450" 
                             VerticalAlignment="Center"
-                            Margin="10,0,10,0"/>
+                            Margin="10,0,10,0" ValueChanged="slPlay_ValueChanged"/>
                     <Label x:Name="lbLength" Content="4:00"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
@@ -80,7 +80,7 @@
                     <Button Width="50" Height="50" Margin="0,0,70,0">
                         <Image Source="Image\Music\shuffle.png" Stretch="Uniform"/>
                     </Button>
-                    <Button>
+                    <Button Click="Button_Click_1">
                         <Image Source="Image\Music\back.png" Stretch="Uniform"></Image>
                     </Button>
                     <Button Name="btnPlay" Click="btnPlay_Click" Margin="15,0,15,0">
@@ -89,7 +89,7 @@
                     <Button Name="btnStop" Width="0" Click="btnStop_Click">
                         <Image Source="Image\Music\stop.png" Stretch="Uniform"></Image>
                     </Button>
-                    <Button>
+                    <Button x:Name="btnNext" Click="btnNext_Click">
                         <Image Source="Image\Music\next.png" Stretch="Uniform"></Image>
                     </Button>
                     <Button Width="50" Height="50" Margin="70,0,0,0" Click="Button_Click">
@@ -105,18 +105,20 @@
                        Background="{Binding RelativeSource={RelativeSource FindAncestor,
                     AncestorType=Control}, Path=Background}">
                 </ListView>-->
-                <ListBox x:Name="lbSongs"  Background="{Binding RelativeSource={RelativeSource FindAncestor,
-                    AncestorType=Control}, Path=Background}">
-                    <ListBox.ItemTemplate>
+                <ListView x:Name="lbSongs"  Background="{Binding RelativeSource={RelativeSource FindAncestor,
+                    AncestorType=Control}, Path=Background}" SelectionChanged="lbSongs_SelectionChanged">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid HorizontalAlignment="Stretch">
-                                <Button Content="{Binding}">
-
-                                </Button>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal" Height="70">
+                                <StackPanel Orientation="Vertical" Width="200" Margin="0,0,350,0">
+                                    <TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>
+                                    <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
+                                    <TextBlock Foreground="#ADABAB" Margin="0,0" FontSize="10"  Text="{Binding Singer}"/>
+                                </StackPanel>
+                            </StackPanel>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                    </ListView.ItemTemplate>
+                </ListView>
             </ScrollViewer>
         </DockPanel>
     </Grid>
