@@ -67,7 +67,6 @@
                             <Label Content="Đây là tên playlist" FontSize="15"></Label>
                             <Label Content="Đây là tên ca sĩ"></Label>
                         </StackPanel>
-
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Background="{Binding Grid}" Height="300">

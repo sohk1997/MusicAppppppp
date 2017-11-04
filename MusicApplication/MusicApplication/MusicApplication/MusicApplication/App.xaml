@@ -24,6 +24,9 @@
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="Gray"/>
                             </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Background" Value="Gray"/>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -37,8 +40,8 @@
                 <StackPanel Orientation="Horizontal" Height="50">
                     <StackPanel Orientation="Vertical" Width="250" Margin="0,0,350,0">
                         <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
-                        <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
-                        <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
+                        <TextBlock Foreground="White" FontSize="16" Text="{Binding SongName}"/>
+                        <TextBlock FontWeight="Normal" Foreground="#ADABAB" Margin="0,8" FontSize="13" Text="{Binding ArtistName}"/>
                     </StackPanel>
                     <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0"/>
                     <Image Height="20" Source="Image/Music/add.png"/>
@@ -50,6 +53,20 @@
                 <StackPanel Orientation="Horizontal" Height="50">
                     <CheckBox/>
                     <TextBlock Text="{Binding AlbumName}"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="songHome">
+            <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
+                <StackPanel Orientation="Horizontal" Height="50" Width="750">
+                    <StackPanel Orientation="Vertical" Width="600">
+                        <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
+                        <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
+                        <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
+                    </StackPanel>
+                    <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0"/>
+                    <Image Height="20" Source="Image/Music/add.png"/>
+                    <!--<Image Height="20" Source="Image/Music/add.png"/>-->
                 </StackPanel>
             </Border>
         </DataTemplate>

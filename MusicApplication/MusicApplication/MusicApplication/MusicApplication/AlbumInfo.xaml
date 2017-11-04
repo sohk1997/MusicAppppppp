@@ -53,9 +53,9 @@
                         </Setter>
                     </Style>
                 </TabControl.Resources>
-                <TabItem Header="Danh sách">
+                <TabItem Header="Danh sách" Background="#414242">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView Name="lvAlbumSong" Height="466">
+                        <ListView Name="lvAlbumSong" Background="#414242" BorderThickness="0" Height="465">
                         
                     </ListView>
                     </ScrollViewer>

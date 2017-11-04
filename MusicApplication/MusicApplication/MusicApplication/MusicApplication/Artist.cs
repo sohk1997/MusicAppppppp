@@ -10,5 +10,6 @@ namespace MusicApplication
     {
         public string ArtistName { get; set; }
         public string TextImage { get; set; }
+        public string Infomation { get; set; }
     }
 }

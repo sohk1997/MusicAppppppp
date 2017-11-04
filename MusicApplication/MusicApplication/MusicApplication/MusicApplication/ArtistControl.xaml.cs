@@ -40,6 +40,7 @@ namespace MusicApplication
                 }
             }
             lvArtists.ItemsSource = items;
+<<<<<<< HEAD
         }
 
         public Frame Parrent { get => parrent; set => parrent = value; }
@@ -53,6 +54,8 @@ namespace MusicApplication
             SongControl song = new SongControl();
             song.Items = transfer.FindSongOfSinger(singerName).ToList();
             parrent.Content = song.Content;
+=======
+>>>>>>> 7393b3e0aa25066a993813e9e81bdf7edbc76c4e
         }
     }
 }

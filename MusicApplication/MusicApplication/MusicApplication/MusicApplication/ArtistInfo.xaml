@@ -17,8 +17,8 @@
                 <TextBlock FontSize="30" FontWeight="Bold" Foreground="WhiteSmoke" Margin="20,0" Text="Ngọt" VerticalAlignment="Bottom"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel>
-            <TabControl Padding="0" BorderBrush="{Binding DockPanel}">
+        <StackPanel >
+            <TabControl Padding="0" BorderBrush="{Binding DockPanel}" Height="499">
                 <TabControl.Resources>
                     <Style TargetType="TabItem">
                         <Setter Property="Foreground" Value="White"/>
@@ -53,9 +53,39 @@
                         </Setter>
                     </Style>
                 </TabControl.Resources>
-                <TabItem Header="Bài hát"/>
-                <TabItem Header="Playlist" Width="400"/>
-                <TabItem Header="Thông tin"/>
+                <TabItem Header="Bài hát">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#414242">
+                        <ListView Name="lvAtistSong" Background="#414242" BorderThickness="0" Height="430"/>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Playlist" Width="400" Background="#414242">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#414242">
+                        <ListView Height="436" BorderThickness="0" Background="#414242" Name="lvArtistAlbum">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Margin="20" Columns="4"/>
+                                    <!--<WrapPanel/>-->
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate >
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" Cursor="Hand">
+                                        <Image Width="170" Height="170" Source="{Binding AlbumURLImage}" Stretch="Uniform"/>
+                                        <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="{Binding AlbumName}"/>
+                                        <TextBlock FontWeight="Bold" FontSize="15" Foreground="Gray" Text="{Binding ArtistName}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Thông tin">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#414242">
+                        <StackPanel>
+                            <TextBlock Margin="20,20,20,0" TextWrapping="Wrap" Background="#414242" Foreground="White"  Name="txtInformation" Height="431"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
             </TabControl>
         </StackPanel>
     </DockPanel>
