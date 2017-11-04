@@ -26,7 +26,7 @@ namespace MusicApplication
             InitializeComponent();
             ListViewItem item;
             Song s;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 15; i++)
             {
                 item = new ListViewItem();
                 s = new Song("Ahihi", "Ahohohohohoh");

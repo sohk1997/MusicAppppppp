@@ -9,14 +9,14 @@
     <DockPanel Background="#414242">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid Background="#414242" DockPanel.Dock="Left" Width="800" HorizontalAlignment="Left">
-                <ListView BorderThickness="0" Background="{Binding DockPanel.Background}" Name="lvPlaylists">
+                <ListView BorderThickness="0" Background="{Binding DockPanel.Background}" Name="lvPlaylists" SelectionChanged="lvPlaylists_SelectionChanged" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <UniformGrid Margin="20" Columns="4"/>
                             <!--<WrapPanel/>-->
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
+                    <ListView.ItemTemplate >
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" Cursor="Hand">
                                 <Image Width="170" Height="170" Source="{Binding AlbumURLImage}" Stretch="Uniform"/>

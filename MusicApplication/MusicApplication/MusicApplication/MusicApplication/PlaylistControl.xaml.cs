@@ -51,5 +51,11 @@ namespace MusicApplication
             items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
             lvPlaylists.ItemsSource = items;
         }
+
+        private void lvPlaylists_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AlbumInfo album = new AlbumInfo();
+            this.Content = album.Content;
+        }
     }
 }

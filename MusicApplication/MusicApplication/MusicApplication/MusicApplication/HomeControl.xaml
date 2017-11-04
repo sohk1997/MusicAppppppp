@@ -49,24 +49,6 @@
                     <ListView BorderThickness="0" Background="{Binding Grid}" Name="lvHomeSongs"
                               HorizontalAlignment="Left" Cursor="Hand"
                               ScrollViewer.CanContentScroll="True">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
-                                    <ListViewItem HorizontalContentAlignment="Stretch">
-                                        <StackPanel Orientation="Horizontal" Height="50" Width="750">
-                                            <StackPanel Orientation="Vertical" Width="600">
-                                                <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
-                                                <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
-                                                <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
-                                            </StackPanel>
-                                            <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0"/>
-                                            <Image Height="20" Source="Image/Music/add.png"/>
-                                            <!--<Image Height="20" Source="Image/Music/add.png"/>-->
-                                        </StackPanel>
-                                    </ListViewItem>
-                                </Border>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
                     </ListView>
                 </StackPanel>
             </StackPanel>
