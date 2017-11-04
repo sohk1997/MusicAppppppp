@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MusicApplication.ServiceReference;
 
 namespace MusicApplication
 {
@@ -20,16 +21,56 @@ namespace MusicApplication
     /// </summary>
     public partial class PersonalPlaylist : UserControl
     {
-        List<Playlist> items = new List<Playlist>();
+        List<ServiceReference.Playlist> items;
+        ServiceReference.ITransfer transfer;
+        ServiceReference.UserInfo user;
+        MainWindow parrent;
         public PersonalPlaylist()
         {
             InitializeComponent();
-            items.Add(new Playlist("hehe", "/Image/image1.png", "0 bài hát"));
-            items.Add(new Playlist("haha", "/Image/image1.png", "4 bài hát"));
-            items.Add(new Playlist("hoho", "/Image/image1.png", "12 bài hát"));
-            items.Add(new Playlist("hihi", "/Image/image1.png", "12 bài hát"));
-   
+        }
+
+        public UserInfo User { get => user; set => user = value; }
+        public MainWindow Parrent { get => parrent; set => parrent = value; }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtName.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter name of playlist");
+                return;
+            }
+            transfer = new TransferClient();
+            ServiceReference.Playlist playlist = new ServiceReference.Playlist();
+            playlist.Creator = user.ID;
+            playlist.Name = txtName.Text;
+            transfer.AddPlaylist(playlist);
+            LoadData();
+        }
+        public void LoadData()
+        {
+            transfer = new ServiceReference.TransferClient();
+            items = transfer.GetPlaylistByUserID(user.ID).ToList();
             lvPlaylists.ItemsSource = items;
+        }
+
+        private void lvPlaylists_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = lvPlaylists.SelectedIndex;
+        }
+
+        private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanel panel = (StackPanel)sender;
+            Image image = (Image)panel.Children[0];
+            string playListID = image.Tag.ToString();
+            ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
+            List<ServiceReference.SongInfo> listOfSong = transfer.GetSongOfPlaylist(playListID).ToList();
+            Parrent.textTitle.Text = Parrent.SONG;
+            SongControl songControl = new SongControl();
+            songControl.Items = listOfSong;
+            songControl.LoadData();
+            Parrent.Main.Content = songControl.Content; 
         }
     }
 }

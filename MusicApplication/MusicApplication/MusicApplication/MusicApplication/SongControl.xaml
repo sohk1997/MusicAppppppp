@@ -13,13 +13,14 @@
                     <DataTemplate>
                         <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
                             <StackPanel Orientation="Horizontal" Height="70">
-                                <StackPanel Orientation="Vertical" Width="250" Margin="0,0,350,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
+                                <Image Source="Image/songicon.jpg" Stretch="Fill" Width="50" Margin="0,0,10,0"/>
+                                <StackPanel Orientation="Vertical" Width="250" Margin="0,0,0,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
                                     <TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>
                                     <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
                                     <TextBlock Foreground="#ADABAB" Margin="0,0" FontSize="10"  Text="{Binding Singer}"/>
                                 </StackPanel>
                                 <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0" MouseLeftButtonDown="Image_MouseDown" Tag="{Binding ID}"/>
-                                <Image Height="20" Source="Image/Music/add.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" />
+                                <Image Height="20" Source="Image/Music/add.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Tag="{Binding ID}"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>

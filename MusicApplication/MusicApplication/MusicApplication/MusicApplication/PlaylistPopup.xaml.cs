@@ -19,20 +19,44 @@ namespace MusicApplication
     /// </summary>
     public partial class PlaylistPopup : Window
     {
-        List<ListViewItem> pls = new List<ListViewItem>();
+        List<ServiceReference.Playlist> pls = new List<ServiceReference.Playlist>();
+        private string songID;
         public PlaylistPopup()
         {
             InitializeComponent();
-            ListViewItem item;
-            for (int i = 0; i < 5; i++)
+        }
+
+        public string SongID { get => songID; set => songID = value; }
+
+        public void LoadData(string userID)
+        {
+            ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
+            pls = transfer.GetPlaylistByUserID(userID).ToList();
+            lvPlaylists.ItemsSource = pls;
+        }
+
+        private void lvPlaylists_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(MessageBox.Show("Bạn muốn thêm vào playlist này?","Xác nhận",MessageBoxButton.YesNo) == MessageBoxResult.No)
             {
-                item = new ListViewItem();
-                Playlist pl = new Playlist("Playlist");
-                item.ContentTemplate = (DataTemplate)this.FindResource("ppPopup");
-                item.Content = pl;
-                pls.Add(item);
+                return;
             }
-            playlists.ItemsSource = pls;
+            else
+            {
+                int index = lvPlaylists.SelectedIndex;
+                string playlistID = pls.ElementAt(index).ID;
+                ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
+                int ans = transfer.AddSongToPlaylist(SongID, playlistID);
+                if(ans == 1)
+                {
+                    MessageBox.Show("Thêm vào playlist thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra. Xin thử lại");
+                }
+                this.Close();
+            }
         }
     }
 }

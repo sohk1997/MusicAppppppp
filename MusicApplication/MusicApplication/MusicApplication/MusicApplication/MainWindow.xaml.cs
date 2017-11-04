@@ -20,13 +20,13 @@ namespace MusicApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string SONG = "BÀI HÁT";
-        private readonly string ARTIST = "NGHỆ SĨ";
-        private readonly string UPLOAD = "TẢI LÊN";
-        private readonly string HOME = "TRANG CHỦ";
-        private readonly string MYPLAYLIST = "NHẠC CỦA TÔI";
-        private readonly string PLAYLIST = "PLAYLIST | ALBUM";
-
+        public readonly string SONG = "BÀI HÁT";
+        public readonly string ARTIST = "NGHỆ SĨ";
+        public readonly string UPLOAD = "TẢI LÊN";
+        public readonly string HOME = "TRANG CHỦ";
+        public readonly string MYPLAYLIST = "NHẠC CỦA TÔI";
+        public readonly string PLAYLIST = "PLAYLIST | ALBUM";
+        private ServiceReference.UserInfo user = null;
 
         public MainWindow()
         {
@@ -57,8 +57,11 @@ namespace MusicApplication
                 uLogout.Text = "Đăng xuất";
                 uLogin.Text = "";
                 uRegister.Text = "";
+                user = login.User;
+                textTitle.Text = HOME;
+                Home homeControl = new Home();
+                Main.Content = homeControl.Content;
             }
-
         }
 
         private void uRegister_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -72,20 +75,24 @@ namespace MusicApplication
             textTitle.Text = SONG;
             SongControl songControl = new SongControl();
             songControl.Parrent = Main;
+            if (user != null)
+            {
+                songControl.UserId = user.ID;
+            }
             Main.Content = songControl.Content;
 
         }
 
-        private void btnSong_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
 
         private void btnArtist_Click(object sender, RoutedEventArgs e)
         {
             textTitle.Text = ARTIST;
             ArtistControl artistControl = new ArtistControl();
-            artistControl.Parrent = Main;
+            artistControl.Parrent = this;
+            if (user != null)
+            {
+                artistControl.UserID = user.ID;
+            }
             Main.Content = artistControl.Content;
         }
 
@@ -98,6 +105,7 @@ namespace MusicApplication
                 uLogout.Text = "";
                 uLogin.Text = "Đăng nhập";
                 uRegister.Text = "Đăng ký";
+                user = null;
             }
         }
         private void uName_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -127,8 +135,14 @@ namespace MusicApplication
 
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
+            if(user == null)
+            {
+                MessageBox.Show("Please login to use this");
+                return;
+            }
             textTitle.Text = UPLOAD;
             UploadControl uploadControl = new UploadControl();
+            uploadControl.UserID = int.Parse(user.ID);
             Main.Content = uploadControl.Content;
         }
 
@@ -145,13 +159,25 @@ namespace MusicApplication
             songControl.Items = transfer.FindSongLikeName(lbSearch.Text).ToList();
             songControl.Parrent = Main;
             songControl.LoadData();
+            if(user != null)
+            {
+                songControl.UserId = user.ID;
+            }
             Main.Content = songControl.Content;
         }
 
         private void myPlaylist_Click(object sender, RoutedEventArgs e)
         {
+            if (user == null)
+            {
+                MessageBox.Show("Please login to use this");
+                return;
+            }
             textTitle.Text = MYPLAYLIST;
             PersonalPlaylist myPlaylistControl = new PersonalPlaylist();
+            myPlaylistControl.User = user;
+            myPlaylistControl.LoadData();
+            myPlaylistControl.Parrent = this;
             Main.Content = myPlaylistControl.Content;
         }
 

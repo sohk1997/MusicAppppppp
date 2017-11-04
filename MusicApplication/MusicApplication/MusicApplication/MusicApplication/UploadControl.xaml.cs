@@ -54,7 +54,6 @@ namespace MusicApplication
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            userID = 1;
             if(txtSinger.Text.Length == 0)
             {
                 MessageBox.Show("Please enter at least one name for the singer");
@@ -80,7 +79,7 @@ namespace MusicApplication
             song.Name = txtName.Text;
             song.Writter = txtWriter.Text;
             song.Singer = txtSinger.Text;
-            song.Uploader = ""+userID;
+            song.Uploader = ""+UserID;
             ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
             int id = transfer.InsertSongInfo(song);
             UploadSong uploader = new UploadSong();

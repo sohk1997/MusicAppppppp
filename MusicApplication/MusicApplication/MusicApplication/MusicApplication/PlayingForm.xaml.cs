@@ -72,7 +72,10 @@ namespace MusicApplication
 
         public void LoadData()
         {
-            MessageBox.Show(items.ElementAt(SelectedIndex).ID);
+            if(items == null)
+            {
+                return;
+            }
             lbSongs.ItemsSource = Items;
             lbSinger.Content = items.ElementAt(SelectedIndex).Singer;
             lbSong.Content = items.ElementAt(SelectedIndex).Name;
@@ -163,16 +166,7 @@ namespace MusicApplication
         {
             player.PlayerClass.currentPosition = 0;
         }
-
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
+        
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {

@@ -115,8 +115,6 @@
                                     <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
                                     <TextBlock Foreground="#ADABAB" Margin="0,0" FontSize="10"  Text="{Binding Singer}"/>
                                 </StackPanel>
-                                <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0" MouseLeftButtonDown="Image_MouseDown" Tag="{Binding ID}"/>
-                                <Image Height="20" Source="Image/Music/add.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

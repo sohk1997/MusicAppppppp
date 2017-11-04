@@ -37,7 +37,7 @@ namespace MusicAppService
         }
 
 
-        public string Login(string username, string password)
+        public UserInfo Login(string username, string password)
         {
             UserInfoData userInfoData = new UserInfoData();
             return userInfoData.checkLogin(username, password);
@@ -96,6 +96,26 @@ namespace MusicAppService
         public List<SongInfo> FindSongOfSinger(string name)
         {
             return new SongInfoData().GetSongOfSinger(name);
+        }
+
+        public List<Playlist> GetPlaylistByUserID(string userID)
+        {
+            return new PlaylistControl().GetPlaylistOfUser(userID);
+        }
+
+        public int AddPlaylist(Playlist playlist)
+        {
+            return new PlaylistControl().AddNewPlaylist(playlist);
+        }
+
+        public int AddSongToPlaylist(string songID, string playlistID)
+        {
+            return new PlaylistControl().AddSongToPlaylist(songID, playlistID);
+        }
+
+        public List<SongInfo> GetSongOfPlaylist(string playlistID)
+        {
+            return new SongInfoData().GetSongOfPlaylist(playlistID);
         }
     }
 }

@@ -24,6 +24,7 @@ namespace MusicApplication
         List<ServiceReference.SongInfo> items;
         Frame parrent;
         PlayingForm playing = new PlayingForm();
+        string userId = "";
         public SongControl()
         {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace MusicApplication
 
         public Frame Parrent { get => parrent; set => parrent = value; }
         public List<SongInfo> Items { get => items; set => items = value; }
+        public string UserId { get => userId; set => userId = value; }
+
         public void LoadData()
         {
             lvSongs.ItemsSource = items;
@@ -62,21 +65,41 @@ namespace MusicApplication
             playing.Items = items;
             playing.SongID = "S" + block.Text;          
             playing.Parent1 = parrent;
-            playing.SetRenderEvent();                    
+            playing.SetRenderEvent();
+            int index = lvSongs.SelectedIndex;
+            if (index == -1)
+            {
+                index = 0;
+            }
+            playing.SelectedIndex = index;
+            playing.LoadData();
+            parrent.Content = playing.Content;
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if(userId == null || userId.Length == 0)
+            {
+                MessageBox.Show("Please login to add song to playlist.");
+                return;
+            }
             PlaylistPopup plPopup = new PlaylistPopup();
+            System.Windows.Controls.Image image = (System.Windows.Controls.Image)sender;
+            plPopup.SongID = image.Tag.ToString();
+            plPopup.LoadData(userId);
             plPopup.ShowDialog();
         }
 
         private void lvSongs_Selected(object sender, SelectionChangedEventArgs e)
         {
             int index = lvSongs.SelectedIndex;
+            if(index == -1)
+            {
+                index = 0;
+            }
             playing.SelectedIndex = index;
             playing.LoadData();
-            parrent.Content = playing.Content;
+            
         }
     }
 }
