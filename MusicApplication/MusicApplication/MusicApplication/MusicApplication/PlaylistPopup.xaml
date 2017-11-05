@@ -9,7 +9,7 @@
     <Grid>
         <DockPanel LastChildFill="True" Background="#414242">
             <StackPanel DockPanel.Dock="Top">
-                <ListView BorderThickness="0" Background="{Binding DockPanel}" Width="250"
+                <ListView BorderThickness="0" Background="{Binding DockPanel}" Height="300" Width="300"
                       Name="lvPlaylists" HorizontalAlignment="Left" SelectionChanged="lvPlaylists_SelectionChanged" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
