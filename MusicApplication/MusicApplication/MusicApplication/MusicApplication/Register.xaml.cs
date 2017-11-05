@@ -82,7 +82,7 @@ namespace MusicApplication
             }
 
             UserInfo user = new UserInfo();
-            user.Name = txtUsername.Text;
+            user.Name = txtName.Text;
             user.Username = txtUsername.Text;
             user.Password = txtPassword.Password;
             user.Email = txtEmail.Text;

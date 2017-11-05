@@ -27,14 +27,8 @@ namespace MusicApplication
         public UploadControl()
         {
             InitializeComponent();
-            items.Add(new Song("Ahihi", "Ahuhu"));
-            items.Add(new Song("Ahihi", "Ahuhu"));
-            items.Add(new Song("Ahihi", "Ahuhu"));
-            items.Add(new Song("Ahihi", "Ahuhu"));
-            items.Add(new Song("Ahihi", "Ahuhu"));
-            items.Add(new Song("Ahihi", "Ahuhu"));
-            items.Add(new Song("Ahihi", "Ahuhu"));
-            items.Add(new Song("Ahihi", "Ahuhu"));
+            items.Add(new Song("Anh", "Hồ Quỳnh Hương"));
+            
             lvUpSongs.ItemsSource = items;
         }
 
