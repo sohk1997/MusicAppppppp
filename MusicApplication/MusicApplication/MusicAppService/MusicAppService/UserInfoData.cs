@@ -76,20 +76,24 @@ namespace MusicAppService
             }
             return check;
         }
+
         public bool CheckDupUsername(string username)
         {
             bool check = false;
             connectionString = ConfigurationManager.AppSettings["connectionString"];
             SqlConnection cnn = new SqlConnection(connectionString);
-            string sql = "select Username from [User] where Username=@Username";
+            string sql = "select Username from [User] where Username=@User";
             SqlCommand cmd = new SqlCommand(sql, cnn);
-            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@User", username);
             try
             {
                 cnn.Open();
-                if (cmd.ExecuteNonQuery() > 0)
+                using (SqlDataReader myReader = cmd.ExecuteReader())
                 {
-                    check = true;
+                    if (myReader.Read())
+                    {
+                        check = true;
+                    }
                 }
             }
             catch (SqlException se)

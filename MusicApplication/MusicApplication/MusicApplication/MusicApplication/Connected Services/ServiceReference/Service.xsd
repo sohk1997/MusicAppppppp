@@ -24,6 +24,7 @@
       <xs:element minOccurs="0" name="CountingLike" type="xs:int" />
       <xs:element minOccurs="0" name="CountingPlay" type="xs:int" />
       <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lyric" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Singer" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
@@ -49,6 +50,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArtistInfo" nillable="true" type="tns:ArtistInfo" />
+  <xs:complexType name="ArrayOfAlbumInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlbumInfo" nillable="true" type="tns:AlbumInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlbumInfo" nillable="true" type="tns:ArrayOfAlbumInfo" />
+  <xs:complexType name="AlbumInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Singer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="URLImage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlbumInfo" nillable="true" type="tns:AlbumInfo" />
   <xs:complexType name="ArrayOfPlaylist">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Playlist" nillable="true" type="tns:Playlist" />

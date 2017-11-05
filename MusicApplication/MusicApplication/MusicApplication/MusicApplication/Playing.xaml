@@ -23,7 +23,7 @@
                     <Label>Thương em hơn chính anh</Label>
                     <Label>Jun Phạm</Label>
                 </StackPanel>
-                <Ellipse Height="400" Width="400" Margin="0,0,0,50">
+                <Ellipse Height="150" Width="150" Margin="0,0,0,50">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="Image\bgLogin.jpg"></ImageBrush>
                     </Ellipse.Fill>

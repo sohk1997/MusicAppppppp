@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicApplication"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="1000">
     <DockPanel Background="#414242">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <Grid Background="#414242" DockPanel.Dock="Left" Width="800" HorizontalAlignment="Left">
+            <Grid Background="#414242" DockPanel.Dock="Left" Width="1000" HorizontalAlignment="Left">
                 <ListView BorderThickness="0" Background="{Binding DockPanel.Background}" Name="lvPlaylists" SelectionChanged="lvPlaylists_SelectionChanged" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -19,9 +19,9 @@
                     <ListView.ItemTemplate >
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" Cursor="Hand">
-                                <Image Width="170" Height="170" Source="{Binding AlbumURLImage}" Stretch="Uniform"/>
-                                <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="{Binding AlbumName}"/>
-                                <TextBlock FontWeight="Bold" FontSize="15" Foreground="Gray" Text="{Binding ArtistName}"/>
+                                <Image Width="170" Height="170" Source="{Binding URLImage}" Stretch="Uniform"/>
+                                <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="{Binding Name}"/>
+                                <TextBlock FontWeight="Bold" FontSize="10" Foreground="Gray" Text="{Binding Singer}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

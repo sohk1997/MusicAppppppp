@@ -10,7 +10,7 @@
     <Grid Background="Black">
         <DockPanel>
             <DockPanel.Background>
-                <ImageBrush Stretch="UniformToFill" Opacity="0.5" ImageSource="Image\bgLogin.jpg"></ImageBrush>
+                <ImageBrush Stretch="UniformToFill" Opacity="0.5" ImageSource="Image\Music\coverMusic.jpg"></ImageBrush>
             </DockPanel.Background>
             <StackPanel DockPanel.Dock="Left" Width="600">
                 <StackPanel Margin="0,10,0,10">
@@ -24,9 +24,9 @@
                     <Label Name="lbSong">Thương em hơn chính anh</Label>
                     <Label Name="lbSinger" >Jun Phạm</Label>
                 </StackPanel>
-                <Ellipse Height="400" Width="400" Margin="0,0,0,50" RenderTransformOrigin="0.5, 0.5">
+                <Ellipse Height="300" Width="300" Margin="0,0,0,20" RenderTransformOrigin="0.5, 0.5">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="Image\bgLogin.jpg"></ImageBrush>
+                        <ImageBrush ImageSource="Image\Music\iPlaying.png"></ImageBrush>
                     </Ellipse.Fill>
                     <!--<Ellipse.Triggers>
                         <EventTrigger SourceName="btnPlay" RoutedEvent="Button.Click">
@@ -69,7 +69,7 @@
                                         </Grid>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="{Binding DockPanel.Background}"/>
+                                                <Setter Property="Background" Value="#565656"/>
                                             </Trigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>
@@ -100,13 +100,8 @@
             <Border BorderBrush="White" BorderThickness="0.7" Margin="0,70,0,70"/>
             <StackPanel/>
             <!-- music list -->
-            <ScrollViewer Height="510" VerticalScrollBarVisibility="Auto">
-                <!--<ListView Height="510" Width="358"
-                       Background="{Binding RelativeSource={RelativeSource FindAncestor,
-                    AncestorType=Control}, Path=Background}">
-                </ListView>-->
-                <ListView x:Name="lbSongs"  Background="{Binding RelativeSource={RelativeSource FindAncestor,
-                    AncestorType=Control}, Path=Background}" SelectionChanged="lbSongs_SelectionChanged">
+            <ScrollViewer Height="500" HorizontalScrollBarVisibility="Auto">
+                <ListView BorderThickness="0" Height="500" Width="400" x:Name="lbSongs"  Background="{Binding DockPanel}" SelectionChanged="lbSongs_SelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Height="70">

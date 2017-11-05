@@ -34,7 +34,10 @@ namespace MusicApplication
             errorConfirmPassword.Content = string.Empty;
             errorEmail.Content = string.Empty;
 
+<<<<<<< HEAD
             bool checkError = true;
+=======
+>>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
             if (txtName.Text.Length == 0)
             {
                 errorName.Content = "Tên không được bỏ trống";
@@ -46,9 +49,14 @@ namespace MusicApplication
                 return;
             }
             ITransfer service = new TransferClient();
+            
             if (service.CheckDupUsername(txtUsername.Text))
             {
+<<<<<<< HEAD
                 //MessageBox.Show("hahaha");
+=======
+            
+>>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
                 errorUsername.Content = "Tài khoản đã tồn tại";
                 return;
             }
@@ -74,6 +82,7 @@ namespace MusicApplication
             }
             string pattern = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
             Regex r = new Regex(pattern, RegexOptions.IgnoreCase);
+<<<<<<< HEAD
 
             if (!r.Match(txtEmail.Text).Success)
             {
@@ -114,8 +123,45 @@ namespace MusicApplication
                 }
                 else
                     MessageBox.Show("Đăng ký không thành công!");
+=======
+
+            if (!r.Match(txtEmail.Text).Success)
+            {
+                errorEmail.Content = "Email không hợp lệ";
+                return;
             }
 
+            UserInfo user = new UserInfo();
+            user.Name = txtUsername.Text;
+            user.Username = txtUsername.Text;
+            user.Password = txtPassword.Password;
+            user.Email = txtEmail.Text;
+
+            bool result = false;
+            try
+            {
+                result = service.Register(user);
+
+            }
+            catch (Exception)
+            {
+                errorUsername.Content = "Tài khoản đã tồn tại";
+                throw new Exception();
+>>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
+            }
+
+            if (result)
+            {
+                MessageBox.Show("Bạn vừa tạo tài khoản thành công!");
+                this.Close();
+            }
+            else
+                MessageBox.Show("Đăng ký không thành công!");
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
     }
 }
+

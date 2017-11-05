@@ -21,35 +21,25 @@ namespace MusicApplication
     public partial class Home : UserControl
     {
         List<ListViewItem> songs = new List<ListViewItem>();
-        List<ListViewItem> playlists = new List<ListViewItem>();
-        List<Playlist> itemsPlaylist = new List<Playlist>();
+
         public Home()
         {
             InitializeComponent();
             ListViewItem item;
-            
-            
-            for (int i = 0; i < 10; i++)
+            ServiceReference.ITransfer service = new ServiceReference.TransferClient();
+            List<ServiceReference.SongInfo> songList = service.Get15Song().ToList();
+            for (int i = 0; i < songList.Count; i++)
             {
                 item = new ListViewItem();
                 item.ContentTemplate = (DataTemplate)this.FindResource("songHome");
-                item.Content = new Song("Ahihi1", "Ahuhu");
+                item.Content = songList[i];
                 songs.Add(item);
             }
             lvHomeSongs.ItemsSource = songs;
 
+            List<ServiceReference.AlbumInfo> itemsPlaylist = new List<ServiceReference.AlbumInfo>();
 
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
-            itemsPlaylist.Add(new Playlist("Album1", "/Image/Singer/s1.jpg", "Ca sĩ 1"));
+            itemsPlaylist = service.Get10Album().ToList();
             lvPlaylists.ItemsSource = itemsPlaylist;
         }
     }

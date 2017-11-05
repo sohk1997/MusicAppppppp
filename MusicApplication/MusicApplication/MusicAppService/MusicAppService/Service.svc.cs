@@ -123,5 +123,16 @@ namespace MusicAppService
         {
             return new SongInfoData().GetSongOfPlaylist(playlistID);
         }
+
+        //Get 10 Albums for Home
+        public List<AlbumInfo> Get10Album()
+        {
+            return new AlbumData().Get10Album();
+        }
+        //get 15 Songs for Home
+        public List<SongInfo> Get15Song()
+        {
+            return new SongInfoData().Get15Song();
+        }
     }
 }

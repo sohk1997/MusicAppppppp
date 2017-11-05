@@ -173,6 +173,9 @@ namespace MusicApplication.ServiceReference {
         private string IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LyricField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -232,6 +235,19 @@ namespace MusicApplication.ServiceReference {
                 if ((object.ReferenceEquals(this.IDField, value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Lyric {
+            get {
+                return this.LyricField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LyricField, value) != true)) {
+                    this.LyricField = value;
+                    this.RaisePropertyChanged("Lyric");
                 }
             }
         }
@@ -438,6 +454,99 @@ namespace MusicApplication.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumInfo", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
+    [System.SerializableAttribute()]
+    public partial class AlbumInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SingerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string URLImageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Singer {
+            get {
+                return this.SingerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SingerField, value) != true)) {
+                    this.SingerField = value;
+                    this.RaisePropertyChanged("Singer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string URLImage {
+            get {
+                return this.URLImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.URLImageField, value) != true)) {
+                    this.URLImageField = value;
+                    this.RaisePropertyChanged("URLImage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Playlist", Namespace="http://schemas.datacontract.org/2004/07/MusicAppService")]
     [System.SerializableAttribute()]
     public partial class Playlist : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -517,17 +626,17 @@ namespace MusicApplication.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.ITransfer")]
     public interface ITransfer {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
-        MusicApplication.ServiceReference.UserInfo Login(string username, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
-        System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
         bool CheckDupUsername(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
         System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
+        MusicApplication.ServiceReference.UserInfo Login(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password);
         
         // CODEGEN: Generating message contract since the wrapper name (DownloadRequest) of message DownloadRequest does not match the default value (DownloadSong)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/DownloadSong", ReplyAction="http://tempuri.org/ITransfer/DownloadSongResponse")]
@@ -548,6 +657,18 @@ namespace MusicApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/LoadAllArtist", ReplyAction="http://tempuri.org/ITransfer/LoadAllArtistResponse")]
         System.Threading.Tasks.Task<MusicApplication.ServiceReference.ListArtist> LoadAllArtistAsync(MusicApplication.ServiceReference.DownloadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Get10Album", ReplyAction="http://tempuri.org/ITransfer/Get10AlbumResponse")]
+        MusicApplication.ServiceReference.AlbumInfo[] Get10Album();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Get10Album", ReplyAction="http://tempuri.org/ITransfer/Get10AlbumResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.AlbumInfo[]> Get10AlbumAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Get15Song", ReplyAction="http://tempuri.org/ITransfer/Get15SongResponse")]
+        MusicApplication.ServiceReference.SongInfo[] Get15Song();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Get15Song", ReplyAction="http://tempuri.org/ITransfer/Get15SongResponse")]
+        System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> Get15SongAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Register", ReplyAction="http://tempuri.org/ITransfer/RegisterResponse")]
         bool Register(MusicApplication.ServiceReference.UserInfo user);
@@ -713,20 +834,20 @@ namespace MusicApplication.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public MusicApplication.ServiceReference.UserInfo Login(string username, string password) {
-            return base.Channel.Login(username, password);
-        }
-        
-        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password) {
-            return base.Channel.LoginAsync(username, password);
-        }
-        
         public bool CheckDupUsername(string username) {
             return base.Channel.CheckDupUsername(username);
         }
         
         public System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username) {
             return base.Channel.CheckDupUsernameAsync(username);
+        }
+        
+        public MusicApplication.ServiceReference.UserInfo Login(string username, string password) {
+            return base.Channel.Login(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -789,6 +910,22 @@ namespace MusicApplication.ServiceReference {
             inValue.ID = ID;
             inValue.SongName = SongName;
             return ((MusicApplication.ServiceReference.ITransfer)(this)).LoadAllArtistAsync(inValue);
+        }
+        
+        public MusicApplication.ServiceReference.AlbumInfo[] Get10Album() {
+            return base.Channel.Get10Album();
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.AlbumInfo[]> Get10AlbumAsync() {
+            return base.Channel.Get10AlbumAsync();
+        }
+        
+        public MusicApplication.ServiceReference.SongInfo[] Get15Song() {
+            return base.Channel.Get15Song();
+        }
+        
+        public System.Threading.Tasks.Task<MusicApplication.ServiceReference.SongInfo[]> Get15SongAsync() {
+            return base.Channel.Get15SongAsync();
         }
         
         public bool Register(MusicApplication.ServiceReference.UserInfo user) {

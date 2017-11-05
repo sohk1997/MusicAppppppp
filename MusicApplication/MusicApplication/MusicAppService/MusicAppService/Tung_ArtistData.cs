@@ -14,7 +14,7 @@ namespace MusicAppService
     public class Tung_ArtistData
     {
         private string connectionString;
-        private readonly string urlFirst = ConfigurationManager.AppSettings["imageURL"];
+        private readonly string urlFirst = ConfigurationManager.AppSettings["imageURLSinger"];
 
         public List<ArtistInfo> LoadAllArtist()
         {

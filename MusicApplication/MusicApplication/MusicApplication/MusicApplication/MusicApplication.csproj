@@ -93,9 +93,6 @@
     <Compile Include="HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HomeForm.xaml.cs">
-      <DependentUpon>HomeForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -140,10 +137,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HomeControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HomeForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,6 +207,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.AlbumInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference\MusicApplication.ServiceReference.ArtistInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -397,6 +393,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\songicon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Album\bayvethoigian.jpg" />
+    <Resource Include="Image\Album\doimatnguoixua.jpg" />
+    <Resource Include="Image\Album\nguoitanoi.jpg" />
+    <Resource Include="Image\Album\tinhbovo.jpg" />
+    <Resource Include="Image\Album\toimuonquenem.jpg" />
+    <Resource Include="Image\Album\xoasachhet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Singer\dvh.jpg" />
+    <Resource Include="Image\Singer\ghn.jpg" />
+    <Resource Include="Image\Singer\khanhvu.jpg" />
+    <Resource Include="Image\Singer\thuytien.jpg" />
+    <Resource Include="Image\Singer\uhp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\imageHome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Music\iPlaying.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Music\coverMusic.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

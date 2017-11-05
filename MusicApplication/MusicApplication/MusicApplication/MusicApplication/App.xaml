@@ -61,8 +61,8 @@
                 <StackPanel Orientation="Horizontal" Height="50" Width="750">
                     <StackPanel Orientation="Vertical" Width="600">
                         <!--<TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>-->
-                        <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding SongName}"/>
-                        <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding ArtistName}"/>
+                        <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
+                        <TextBlock Foreground="#ADABAB" Margin="0,8" Text="{Binding Singer}"/>
                     </StackPanel>
                     <Image Height="20" Source="Image/Music/download.png" Margin="0,0,60,0"/>
                     <Image Height="20" Source="Image/Music/add.png"/>
