@@ -39,6 +39,7 @@ namespace MusicApplication
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Main.Content = null;
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -74,7 +75,7 @@ namespace MusicApplication
         {
             textTitle.Text = SONG;
             SongControl songControl = new SongControl();
-            songControl.Parrent = Main;
+            songControl.Parrent = this;
             if (user != null)
             {
                 songControl.UserId = user.ID;
@@ -157,7 +158,7 @@ namespace MusicApplication
             SongControl songControl = new SongControl();
             ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
             songControl.Items = transfer.FindSongLikeName(lbSearch.Text).ToList();
-            songControl.Parrent = Main;
+            songControl.Parrent = this;
             songControl.LoadData();
             if(user != null)
             {

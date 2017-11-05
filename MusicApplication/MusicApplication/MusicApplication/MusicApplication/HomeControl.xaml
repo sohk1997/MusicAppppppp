@@ -35,7 +35,7 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical">
-                                        <Image Source="{Binding URLImage}" HorizontalAlignment="Left" Height="125" Width="125"/>
+                                        <Image Source="{Binding Image}" HorizontalAlignment="Left" Height="125" Width="125"/>
                                         <Label Content="{Binding Name}" HorizontalContentAlignment="Left" FontSize="15"/>
                                         <Label Content="{Binding Singer}" HorizontalContentAlignment="Left" FontWeight="Normal"/>
                                     </StackPanel>

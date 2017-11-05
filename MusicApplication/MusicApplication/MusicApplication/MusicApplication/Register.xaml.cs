@@ -33,11 +33,6 @@ namespace MusicApplication
             errorPassword.Content = string.Empty;
             errorConfirmPassword.Content = string.Empty;
             errorEmail.Content = string.Empty;
-
-<<<<<<< HEAD
-            bool checkError = true;
-=======
->>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
             if (txtName.Text.Length == 0)
             {
                 errorName.Content = "Tên không được bỏ trống";
@@ -52,11 +47,6 @@ namespace MusicApplication
             
             if (service.CheckDupUsername(txtUsername.Text))
             {
-<<<<<<< HEAD
-                //MessageBox.Show("hahaha");
-=======
-            
->>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
                 errorUsername.Content = "Tài khoản đã tồn tại";
                 return;
             }
@@ -82,48 +72,6 @@ namespace MusicApplication
             }
             string pattern = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
             Regex r = new Regex(pattern, RegexOptions.IgnoreCase);
-<<<<<<< HEAD
-
-            if (!r.Match(txtEmail.Text).Success)
-            {
-                errorEmail.Content = "Email không hợp lệ";
-                return;
-            }
-
-            string name = txtUsername.Text;
-            string username = txtUsername.Text;
-            string password = txtPassword.Password;
-            string confirmPassword = txtConfirmPassword.Password;
-            string email = txtEmail.Text;
-
-            if (checkError)
-            {
-                UserInfo user = new UserInfo();
-                user.Name = name;
-                user.Username = username;
-                user.Password = password;
-                user.Email = email;
-
-                bool result = false;
-                try
-                {
-                    result = service.Register(user);
-
-                }
-                catch (Exception)
-                {
-                    errorUsername.Content = "Tài khoản đã tồn tại";
-                    throw new Exception();
-                }
-
-                if (result)
-                {
-                    MessageBox.Show("Bạn vừa tạo tài khoản thành công!");
-                    this.Close();
-                }
-                else
-                    MessageBox.Show("Đăng ký không thành công!");
-=======
 
             if (!r.Match(txtEmail.Text).Success)
             {
@@ -147,7 +95,6 @@ namespace MusicApplication
             {
                 errorUsername.Content = "Tài khoản đã tồn tại";
                 throw new Exception();
->>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
             }
 
             if (result)
@@ -158,10 +105,7 @@ namespace MusicApplication
             else
                 MessageBox.Show("Đăng ký không thành công!");
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
     }
 }
 

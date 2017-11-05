@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -33,8 +34,9 @@ namespace MusicAppService
                         album = new AlbumInfo();
                         album.ID = dr[0].ToString();
                         album.Name = dr[1].ToString();
-                        album.URLImage = urlFirst + dr[2].ToString();
+                        album.URLImage = Path.Combine(urlFirst,dr[2].ToString());
                         album.Singer = dr[3].ToString();
+                        album.RawData = File.ReadAllBytes(album.URLImage);
                         albumList.Add(album);
                     }
                 }

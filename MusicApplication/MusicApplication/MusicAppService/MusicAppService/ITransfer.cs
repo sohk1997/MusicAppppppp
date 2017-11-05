@@ -14,23 +14,12 @@ namespace MusicAppService
     [ServiceContract]
     public interface ITransfer
     {
-<<<<<<< HEAD
+
         [OperationContract]
         UserInfo Login(string username, string password);
 
         [OperationContract]
         bool CheckDupUsername(string username);        
-=======
-        //[OperationContract]
-
-        //string Login(string username, string password);
-        [OperationContract]
-        bool CheckDupUsername(string username);
-
-        [OperationContract]
-        UserInfo Login(string username, string password);
-
->>>>>>> 57fe32c88f8e8890a3806f2efff3a49b9f0e0822
 
         [OperationContract]
         FileInfo DownloadSong(DownloadRequest request);
@@ -157,6 +146,10 @@ namespace MusicAppService
         public string URLImage;
         [DataMember]
         public string Singer;
+        [DataMember]
+        public byte []RawData;
+        [DataMember]
+        public BitmapImage Image;
     }
 
 

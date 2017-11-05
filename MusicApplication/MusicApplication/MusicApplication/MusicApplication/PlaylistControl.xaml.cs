@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,17 @@ namespace MusicApplication
             List<ServiceReference.AlbumInfo> itemsPlaylist = new List<ServiceReference.AlbumInfo>();
             ServiceReference.ITransfer service = new ServiceReference.TransferClient();
             itemsPlaylist = service.Get10Album().ToList();
+            foreach (ServiceReference.AlbumInfo album in itemsPlaylist)
+            {
+                using (MemoryStream ms = new MemoryStream(album.RawData))
+                {
+                    album.Image = new BitmapImage();
+                    album.Image.BeginInit();
+                    album.Image.CacheOption = BitmapCacheOption.OnLoad;
+                    album.Image.StreamSource = ms;
+                    album.Image.EndInit();
+                }
+            }
             lvPlaylists.ItemsSource = itemsPlaylist;
         }
 

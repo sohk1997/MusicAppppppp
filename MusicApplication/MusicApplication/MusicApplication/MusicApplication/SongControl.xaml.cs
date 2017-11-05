@@ -22,7 +22,7 @@ namespace MusicApplication
     public partial class SongControl : UserControl
     {
         List<ServiceReference.SongInfo> items;
-        Frame parrent;
+        MainWindow parrent;
         PlayingForm playing = new PlayingForm();
         string userId = "";
         public SongControl()
@@ -33,7 +33,7 @@ namespace MusicApplication
             lvSongs.ItemsSource = items;
         }
 
-        public Frame Parrent { get => parrent; set => parrent = value; }
+        public MainWindow Parrent { get => parrent; set => parrent = value; }
         public List<SongInfo> Items { get => items; set => items = value; }
         public string UserId { get => userId; set => userId = value; }
 
@@ -60,11 +60,10 @@ namespace MusicApplication
         {
             lvSongs.SelectedItem = sender;
             StackPanel panel = (StackPanel)sender;
-            
             TextBlock block = (TextBlock)panel.Children[0];
             playing.Items = items;
             playing.SongID = "S" + block.Text;          
-            playing.Parent1 = parrent;
+            playing.Parent1 = parrent.Main;
             playing.SetRenderEvent();
             int index = lvSongs.SelectedIndex;
             if (index == -1)
@@ -73,12 +72,12 @@ namespace MusicApplication
             }
             playing.SelectedIndex = index;
             playing.LoadData();
-            parrent.Content = playing.Content;
+            parrent.Main.Content = playing.Content;
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(userId == null || userId.Length == 0)
+            if (userId == null || userId.Length == 0)
             {
                 MessageBox.Show("Please login to add song to playlist.");
                 return;

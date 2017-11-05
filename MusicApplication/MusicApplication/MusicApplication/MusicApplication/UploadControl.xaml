@@ -68,9 +68,9 @@
                        Width="350"
                        HorizontalContentAlignment="Center"
                        FontSize="30"
-                       Margin="0,30,0,0"/>
+                       Margin="0,30,0,0" Visibility="Hidden"/>
 
-                    <ListView BorderThickness="0" Background="#414242" Name="lvUpSongs" HorizontalAlignment="Left">
+                    <ListView BorderThickness="0" Background="#414242" Name="lvUpSongs" HorizontalAlignment="Left" Visibility="Hidden">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
