@@ -11,10 +11,10 @@
             <ListView BorderThickness="0" Background="#414242" Name="lvSongs" Width="725" HorizontalAlignment="Left" SelectionChanged="lvSongs_Selected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="Gray" BorderThickness="0,1,0,1">
-                            <StackPanel Orientation="Horizontal" Height="70">
-                                <Image Source="Image/songicon.jpg" Stretch="Fill" Width="50" Margin="0,0,10,0"/>
-                                <StackPanel Orientation="Vertical" Width="250" Margin="0,0,0,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
+                        <Border BorderBrush="Gray" Width="800" BorderThickness="0,1,0,1">
+                            <StackPanel Orientation="Horizontal" Height="120">
+                                <Image Source="Image/songicon.jpg" Stretch="None" Height="50" Width="50" Margin="0,0,10,0"/>
+                                <StackPanel Orientation="Vertical" Margin="0,0,0,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
                                     <TextBlock x:Name="txtID" Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding ID}" Visibility="Hidden"/>
                                     <TextBlock Foreground="White" FontWeight="Bold" FontSize="16" Text="{Binding Name}"/>
                                     <TextBlock Foreground="#ADABAB" Margin="0,0" FontSize="10"  Text="{Binding Singer}"/>

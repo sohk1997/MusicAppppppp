@@ -24,32 +24,10 @@ namespace MusicApplication
         public PlaylistControl()
         {
             InitializeComponent();
-
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            items.Add(new Playlist("Album", @"Image/Singer/s1.jpg", "Noo Phước Thịnh"));
-            lvPlaylists.ItemsSource = items;
+            List<ServiceReference.AlbumInfo> itemsPlaylist = new List<ServiceReference.AlbumInfo>();
+            ServiceReference.ITransfer service = new ServiceReference.TransferClient();
+            itemsPlaylist = service.Get10Album().ToList();
+            lvPlaylists.ItemsSource = itemsPlaylist;
         }
 
         private void lvPlaylists_SelectionChanged(object sender, SelectionChangedEventArgs e)

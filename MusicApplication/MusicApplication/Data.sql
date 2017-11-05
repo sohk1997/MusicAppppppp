@@ -13,7 +13,56 @@ insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Em gái mưa', 
 insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Túy âm', 'abc', 4, '02-10-2017')
 insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Chiều hôm ấy', 'abc', 5, '02-10-2017')
 insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Sao chẳng thể vì em', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Xin gọi nhau là cố nhân', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Chuyến tàu hoàng hôn', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Trả lại thời gian', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Nghẹn ngào', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Người ta nói', 'abc', 2, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Trộm nhìn nhau', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Thành phố buồn', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Sao chưa thấy hồi âm', 'abc', 2, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Huyền thoại chiều mưa', 'abc', 2, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Thương Tình Nhân', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Con Đường Xưa Em Đi', 'abc', 6, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Khi Đã Yêu', 'abc', 2, '02-10-2017')
+insert into [Song](Name, URL, UploaderID, LastModified)	values(N'Xóa Sạch Hết', 'abc', 2, '02-10-2017')
 go
+insert into [Singer](FullName, URLImage, Information) 
+values(N'Khánh Vũ', 'khanhvu.jpg', N'Phan Mạnh Quỳnh là tác giả của nhiều bản hit mà ca sĩ Ưng Hoàng Phúc,
+ Khởi My, Hồ Quang Hiếu, Miu Lê... từng thể hiện. Không chỉ sáng tác, anh còn được cộng đồng mạng yêu mến
+  khi tự thể hiện các ca khúc của mình với chất giọng lạ, trầm ấm và gần gũi với cuộc sống như "Người yêu cũ",
+   "Nước ngoài", "Bước qua thế giới", "Mất hy vọng", "Khi phải quên đi"...')
+insert into [Singer](FullName, URLImage, Information) 
+values(N'Thủy Tiên', 'thuytien.jpg', N'Phan Mạnh Quỳnh là tác giả của nhiều bản hit mà ca sĩ Ưng Hoàng Phúc,
+ Khởi My, Hồ Quang Hiếu, Miu Lê... từng thể hiện. Không chỉ sáng tác, anh còn được cộng đồng mạng yêu mến
+  khi tự thể hiện các ca khúc của mình với chất giọng lạ, trầm ấm và gần gũi với cuộc sống như "Người yêu cũ",
+   "Nước ngoài", "Bước qua thế giới", "Mất hy vọng", "Khi phải quên đi"...')
+insert into [Singer](FullName, URLImage, Information) 
+values(N'Ưng Hoàng Phúc', 'uhp.jpg', N'Nam Anh, Thắng và Tuấn cùng nhau thành lập ban nhạc đầu tiên khi cả
+3 đang theo học THCS tại Hà Nội. Tháng 12/2012, khi chuẩn bị bước vào kì thi tốt nghiệp
+THPT, Thắng gặp Hoàng, khi đó là sinh viên năm cuối. Cả 2 khi đó cùng tham gia một buổi
+biểu diễn cover ban nhạc The Beatles tại Hà Nội. Tháng 7/2013, Nam Anh, Thắng, Tuấn tốt
+nghiệp THPT và bắt đầu theo học các trường Đại học khác nhau tại Hà Nội. Thắng quyết định 
+sẽ thành lập một nhóm chỉ chơi sáng tác, thay vì chơi lại các ban nhạc khác như trước đây. 
+Nam Anh và Tuấn ngay lập tức hưởng ứng ý tưởng này và ban nhạc quyết định tìm kiếm mảnh ghép 
+cuối cùng là thành viên chơi bass. Hoàng là người đầu tiên Thắng tìm đến, song cuối cùng thành 
+viên này chưa thể tham gia ban nhạc do sẽ lên đường du học vào tháng 9/2013. Tháng 11/2013, Ngọt 
+chính thức được thành lập với 3 thành viên là Nam Anh, Thắng và Tuấn. Cái tên "Ngọt" được đặt một 
+cách ngẫu hứng do ở thời điểm đó, các thành viên "chỉ cần 1 cái tên để ngắn gọn, dễ gọi để phân biệt 
+với các ban nhạc khác".')
+insert into [Singer](FullName, URLImage, Information) 
+values(N'Giang Hồng Ngọc', 'ghn.jpg', N'Nam Anh, Thắng và Tuấn cùng nhau thành lập ban nhạc đầu tiên khi cả
+3 đang theo học THCS tại Hà Nội. Tháng 12/2012, khi chuẩn bị bước vào kì thi tốt nghiệp
+THPT, Thắng gặp Hoàng, khi đó là sinh viên năm cuối. Cả 2 khi đó cùng tham gia một buổi
+biểu diễn cover ban nhạc The Beatles tại Hà Nội. Tháng 7/2013, Nam Anh, Thắng, Tuấn tốt
+nghiệp THPT và bắt đầu theo học các trường Đại học khác nhau tại Hà Nội. Thắng quyết định 
+sẽ thành lập một nhóm chỉ chơi sáng tác, thay vì chơi lại các ban nhạc khác như trước đây. 
+Nam Anh và Tuấn ngay lập tức hưởng ứng ý tưởng này và ban nhạc quyết định tìm kiếm mảnh ghép 
+cuối cùng là thành viên chơi bass. Hoàng là người đầu tiên Thắng tìm đến, song cuối cùng thành 
+viên này chưa thể tham gia ban nhạc do sẽ lên đường du học vào tháng 9/2013. Tháng 11/2013, Ngọt 
+chính thức được thành lập với 3 thành viên là Nam Anh, Thắng và Tuấn. Cái tên "Ngọt" được đặt một 
+cách ngẫu hứng do ở thời điểm đó, các thành viên "chỉ cần 1 cái tên để ngắn gọn, dễ gọi để phân biệt 
+với các ban nhạc khác".')
 insert into [Singer](FullName, URLImage, Information) 
 values(N'Ngọt', 'ngot.jpg', N'Nam Anh, Thắng và Tuấn cùng nhau thành lập ban nhạc đầu tiên khi cả
 3 đang theo học THCS tại Hà Nội. Tháng 12/2012, khi chuẩn bị bước vào kì thi tốt nghiệp
@@ -27,6 +76,11 @@ viên này chưa thể tham gia ban nhạc do sẽ lên đường du học vào 
 chính thức được thành lập với 3 thành viên là Nam Anh, Thắng và Tuấn. Cái tên "Ngọt" được đặt một 
 cách ngẫu hứng do ở thời điểm đó, các thành viên "chỉ cần 1 cái tên để ngắn gọn, dễ gọi để phân biệt 
 với các ban nhạc khác".')
+insert into [Singer](FullName, URLImage, Information) 
+values(N'Đàm Vĩnh Hưng', 'dvh.jpg', N'Phan Mạnh Quỳnh là tác giả của nhiều bản hit mà ca sĩ Ưng Hoàng Phúc,
+ Khởi My, Hồ Quang Hiếu, Miu Lê... từng thể hiện. Không chỉ sáng tác, anh còn được cộng đồng mạng yêu mến
+  khi tự thể hiện các ca khúc của mình với chất giọng lạ, trầm ấm và gần gũi với cuộc sống như "Người yêu cũ",
+   "Nước ngoài", "Bước qua thế giới", "Mất hy vọng", "Khi phải quên đi"...')
 insert into [Singer](FullName, URLImage, Information) 
 values(N'Phan Mạnh Quỳnh', 'pmq.jpg', N'Phan Mạnh Quỳnh là tác giả của nhiều bản hit mà ca sĩ Ưng Hoàng Phúc,
  Khởi My, Hồ Quang Hiếu, Miu Lê... từng thể hiện. Không chỉ sáng tác, anh còn được cộng đồng mạng yêu mến
@@ -77,3 +131,32 @@ insert into [Category](Name) values ('Rap/Hip Hop')
 insert into [Category](Name) values ('Country')
 insert into [Category](Name) values ('Pop')
 insert into [Category](Name) values ('Rock')
+go
+insert into Album(Name,URLImage) values (N'Bay về thời gian', 'bayvethoigian.jpg')
+insert into Album(Name,URLImage) values (N'Người ta nói (Single)', 'nguoitanoi.jpg')
+insert into Album(Name,URLImage) values (N'Đôi mắt người xưa', 'doimatnguoixua.jpg')
+insert into Album(Name,URLImage) values (N'Tôi muốn quên em (Single)', 'toimuonquenem.jpg')
+insert into Album(Name,URLImage) values (N'Tình bơ vơ', 'tinhbovo.jpg')
+insert into Album(Name,URLImage) values (N'Xóa sạch hết (Single)', 'xoasachhet.jpg')
+go
+insert into SingersOfAlbum(SingerID, AlbumID) values(7,1)
+insert into SingersOfAlbum(SingerID, AlbumID) values(8,2)
+insert into SingersOfAlbum(SingerID, AlbumID) values(9,3)
+insert into SingersOfAlbum(SingerID, AlbumID) values(2,4)
+insert into SingersOfAlbum(SingerID, AlbumID) values(10,5)
+insert into SingersOfAlbum(SingerID, AlbumID) values(11,6)	
+go
+insert into SongsInAlbum(SongID, AlbumID) values(7,1)
+insert into SongsInAlbum(SongID, AlbumID) values(8,1)
+insert into SongsInAlbum(SongID, AlbumID) values(9,1)
+insert into SongsInAlbum(SongID, AlbumID) values(10,1)
+insert into SongsInAlbum(SongID, AlbumID) values(11,2)
+insert into SongsInAlbum(SongID, AlbumID) values(12,3)
+insert into SongsInAlbum(SongID, AlbumID) values(13,3)
+insert into SongsInAlbum(SongID, AlbumID) values(14,3)
+insert into SongsInAlbum(SongID, AlbumID) values(2,4)
+insert into SongsInAlbum(SongID, AlbumID) values(15,5)
+insert into SongsInAlbum(SongID, AlbumID) values(16,5)
+insert into SongsInAlbum(SongID, AlbumID) values(17,5)
+insert into SongsInAlbum(SongID, AlbumID) values(18,5)
+insert into SongsInAlbum(SongID, AlbumID) values(19,6)					

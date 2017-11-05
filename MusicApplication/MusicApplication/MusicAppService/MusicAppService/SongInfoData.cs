@@ -97,6 +97,43 @@ namespace MusicAppService
             ans.RemoveAt(0);
             return ans;
         }
+        public List<SongInfo> Get15Song()
+        {
+            List<SongInfo> songList = new List<SongInfo>();
+            connectionString = ConfigurationManager.AppSettings["connectionString"];
+            SqlConnection cnn = new SqlConnection(connectionString);
+            string query = "SELECT TOP 15 s.[ID],s.[NAME], s.[URL],si.FULLNAME, s.Lyric " +
+            "FROM(Song s INNER JOIN SingersOfSong sos ON s.[ID] = sos.SongID) " +
+            "INNER JOIN Singer si ON si.[ID] = sos.SingerID";
+            SqlCommand cmd = new SqlCommand(query, cnn);
+            try
+            {
+                cnn.Open();
+                SongInfo song = new SongInfo();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        song = new SongInfo();
+                        song.ID = dr[0].ToString();
+                        song.Name = dr[1].ToString();
+                        song.URL = dr[2].ToString();
+                        song.Singer = dr[3].ToString();
+                        song.Lyric = dr[4].ToString();
+                        songList.Add(song);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return songList;
+        }
 
         public int InsertSong(SongInfo song)
         {
@@ -132,7 +169,7 @@ namespace MusicAppService
             int ans = 0;
             connectionString = ConfigurationManager.AppSettings["connectionString"];
             SqlConnection cnn = new SqlConnection(connectionString);
-            string query = "SELECT TOP 1 * "+
+            string query = "SELECT TOP 1 * " +
                            "From Song " +
                            "ORDER BY Song.[ID] DESC";
             SqlCommand cmd = new SqlCommand(query, cnn);
@@ -174,7 +211,7 @@ namespace MusicAppService
                            "WHERE [Song].[NAME] like @Name " +
                            "ORDER BY Song.[ID] DESC";
             SqlCommand cmd = new SqlCommand(query, cnn);
-            cmd.Parameters.AddWithValue("@Name","%"+name+"%");
+            cmd.Parameters.AddWithValue("@Name", "%" + name + "%");
             int a = 0;
             try
             {

@@ -70,6 +70,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumData.cs" />
     <Compile Include="PlaylistControl.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>

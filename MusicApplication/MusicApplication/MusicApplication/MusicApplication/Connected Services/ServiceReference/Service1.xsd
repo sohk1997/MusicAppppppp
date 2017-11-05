@@ -2,6 +2,20 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MusicAppService" />
   <xs:import schemaLocation="http://localhost:13568/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+  <xs:element name="CheckDupUsername">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckDupUsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckDupUsernameResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
@@ -14,20 +28,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="LoginResult" nillable="true" type="q1:UserInfo" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckDupUsername">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckDupUsernameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckDupUsernameResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -67,10 +67,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Get10Album">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get10AlbumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="Get10AlbumResult" nillable="true" type="q5:ArrayOfAlbumInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get15Song">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get15SongResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="Get15SongResult" nillable="true" type="q6:ArrayOfSongInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Register">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="user" nillable="true" type="q5:UserInfo" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="user" nillable="true" type="q7:UserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -84,7 +108,7 @@
   <xs:element name="InsertSongInfo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="song" nillable="true" type="q6:SongInfo" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="song" nillable="true" type="q8:SongInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -105,7 +129,7 @@
   <xs:element name="FindSongLikeNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="FindSongLikeNameResult" nillable="true" type="q7:ArrayOfSongInfo" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="FindSongLikeNameResult" nillable="true" type="q9:ArrayOfSongInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -119,7 +143,7 @@
   <xs:element name="FindSongOfSingerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="FindSongOfSingerResult" nillable="true" type="q8:ArrayOfSongInfo" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="FindSongOfSingerResult" nillable="true" type="q10:ArrayOfSongInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -133,14 +157,14 @@
   <xs:element name="GetPlaylistByUserIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="GetPlaylistByUserIDResult" nillable="true" type="q9:ArrayOfPlaylist" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="GetPlaylistByUserIDResult" nillable="true" type="q11:ArrayOfPlaylist" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddPlaylist">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="playlist" nillable="true" type="q10:Playlist" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="playlist" nillable="true" type="q12:Playlist" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -176,7 +200,7 @@
   <xs:element name="GetSongOfPlaylistResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="GetSongOfPlaylistResult" nillable="true" type="q11:ArrayOfSongInfo" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MusicAppService" minOccurs="0" name="GetSongOfPlaylistResult" nillable="true" type="q13:ArrayOfSongInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

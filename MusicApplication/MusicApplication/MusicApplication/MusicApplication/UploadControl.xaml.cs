@@ -79,11 +79,7 @@ namespace MusicApplication
             song.Name = txtName.Text;
             song.Writter = txtWriter.Text;
             song.Singer = txtSinger.Text;
-<<<<<<< HEAD
             song.Uploader = "" + userID;
-=======
-            song.Uploader = ""+UserID;
->>>>>>> 43a4ff1610ab02af3edfeb8e780753c0827da285
             ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
             int id = transfer.InsertSongInfo(song);
             UploadSong uploader = new UploadSong();
