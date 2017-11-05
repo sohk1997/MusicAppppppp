@@ -78,7 +78,7 @@ namespace MusicApplication
             ServiceReference.ITransfer transfer = new ServiceReference.TransferClient();
             int id = transfer.InsertSongInfo(song);
             UploadSong uploader = new UploadSong();
-            uploader.UploadFile(" " + id, txtURL.Text);
+            uploader.UploadFile("" + id, txtURL.Text);
 
             txtName.Clear();
             txtSinger.Clear();
