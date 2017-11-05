@@ -15,13 +15,10 @@ namespace MusicAppService
     public interface ITransfer
     {
         [OperationContract]
-<<<<<<< HEAD
-        string Login(string username, string password);
-        [OperationContract]
-        bool CheckDupUsername(string username);
-=======
         UserInfo Login(string username, string password);
->>>>>>> 43a4ff1610ab02af3edfeb8e780753c0827da285
+
+        [OperationContract]
+        bool CheckDupUsername(string username);        
 
         [OperationContract]
         FileInfo DownloadSong(DownloadRequest request);

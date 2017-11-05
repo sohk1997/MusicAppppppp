@@ -303,7 +303,7 @@
   </wsdl:binding>
   <wsdl:service name="TransferService">
     <wsdl:port name="BasicHttpBinding_ITransfer" binding="tns:BasicHttpBinding_ITransfer">
-      <soap:address location="http://localhost:13568/Service.svc/Service.svc" />
+      <soap:address location="http://localhost:13568/Service.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
