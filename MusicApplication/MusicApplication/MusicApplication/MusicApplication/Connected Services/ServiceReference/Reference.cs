@@ -465,7 +465,13 @@ namespace MusicApplication.ServiceReference {
         private string IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Windows.Media.Imaging.BitmapImage ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RawDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SingerField;
@@ -497,6 +503,19 @@ namespace MusicApplication.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Windows.Media.Imaging.BitmapImage Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -505,6 +524,19 @@ namespace MusicApplication.ServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RawData {
+            get {
+                return this.RawDataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RawDataField, value) != true)) {
+                    this.RawDataField = value;
+                    this.RaisePropertyChanged("RawData");
                 }
             }
         }
@@ -626,17 +658,17 @@ namespace MusicApplication.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.ITransfer")]
     public interface ITransfer {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
-        bool CheckDupUsername(string username);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
-        System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
         MusicApplication.ServiceReference.UserInfo Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/Login", ReplyAction="http://tempuri.org/ITransfer/LoginResponse")]
         System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
+        bool CheckDupUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/CheckDupUsername", ReplyAction="http://tempuri.org/ITransfer/CheckDupUsernameResponse")]
+        System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username);
         
         // CODEGEN: Generating message contract since the wrapper name (DownloadRequest) of message DownloadRequest does not match the default value (DownloadSong)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITransfer/DownloadSong", ReplyAction="http://tempuri.org/ITransfer/DownloadSongResponse")]
@@ -834,20 +866,20 @@ namespace MusicApplication.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool CheckDupUsername(string username) {
-            return base.Channel.CheckDupUsername(username);
-        }
-        
-        public System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username) {
-            return base.Channel.CheckDupUsernameAsync(username);
-        }
-        
         public MusicApplication.ServiceReference.UserInfo Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
         
         public System.Threading.Tasks.Task<MusicApplication.ServiceReference.UserInfo> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
+        }
+        
+        public bool CheckDupUsername(string username) {
+            return base.Channel.CheckDupUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckDupUsernameAsync(string username) {
+            return base.Channel.CheckDupUsernameAsync(username);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

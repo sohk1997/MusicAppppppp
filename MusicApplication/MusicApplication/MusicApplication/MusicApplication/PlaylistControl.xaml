@@ -19,7 +19,7 @@
                     <ListView.ItemTemplate >
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" Cursor="Hand">
-                                <Image Width="170" Height="170" Source="{Binding URLImage}" Stretch="Uniform"/>
+                                <Image Width="170" Height="170" Source="{Binding Image}" Stretch="Uniform"/>
                                 <TextBlock FontWeight="Bold" FontSize="15" Foreground="White" Text="{Binding Name}"/>
                                 <TextBlock FontWeight="Bold" FontSize="10" Foreground="Gray" Text="{Binding Singer}"/>
                             </StackPanel>

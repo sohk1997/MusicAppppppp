@@ -33,7 +33,6 @@ namespace MusicApplication
             errorPassword.Content = string.Empty;
             errorConfirmPassword.Content = string.Empty;
             errorEmail.Content = string.Empty;
-
             if (txtName.Text.Length == 0)
             {
                 errorName.Content = "Tên không được bỏ trống";
@@ -48,7 +47,6 @@ namespace MusicApplication
             
             if (service.CheckDupUsername(txtUsername.Text))
             {
-            
                 errorUsername.Content = "Tài khoản đã tồn tại";
                 return;
             }

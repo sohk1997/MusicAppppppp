@@ -56,7 +56,7 @@ namespace MusicApplication
             song.Items = transfer.FindSongOfSinger(singerName).ToList();
             song.LoadData();
             song.UserId = userID;
-            song.Parrent = parrent.Main;
+            song.Parrent = parrent;
             parrent.textTitle.Text = parrent.SONG;
             parrent.Main.Content = song.Content;
 

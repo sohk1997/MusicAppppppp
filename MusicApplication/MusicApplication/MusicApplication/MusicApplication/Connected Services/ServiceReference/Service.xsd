@@ -59,7 +59,9 @@
   <xs:complexType name="AlbumInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" minOccurs="0" name="Image" nillable="true" type="q2:BitmapImage" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RawData" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Singer" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="URLImage" nillable="true" type="xs:string" />
     </xs:sequence>

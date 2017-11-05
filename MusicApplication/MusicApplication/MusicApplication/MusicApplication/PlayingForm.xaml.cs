@@ -57,16 +57,13 @@ namespace MusicApplication
         {
             if (player.PlayerClass.playState == WMPPlayState.wmppsMediaEnded)
             {
-                MessageBox.Show("End");
                 selectedIndex = (selectedIndex + 1) % items.Count;
                 ChangeSelectedIndex();
             }
             if (player.PlayerClass.playState == WMPPlayState.wmppsPlaying)
             {
                 durationString = player.PlayerClass.currentMedia.durationString;
-                //MessageBox.Show(durationString);
                 duration = player.PlayerClass.currentMedia.duration;
-                //MessageBox.Show(duration + "");
             }
         }
 
@@ -113,17 +110,14 @@ namespace MusicApplication
                         {
                             slPlay.Value = slPlay.Maximum * fraction;
                         }
-                        //MessageBox.Show(player.PlayerClass.currentMedia.durationString);
                         lbCurrent.Content = player.PlayerClass.currentPositionString;
                         lbLength.Content = player.PlayerClass.currentMedia.durationString;
-                        //lbSong.Content = player.PlayerClass.currentMedia.durationString;
                     });
 
                 }
             }
             else
             {
-                //MessageBox.Show("Here");
                 this.Dispatcher.Invoke(() =>
                 {
                     slPlay.Value = 0;
@@ -215,7 +209,6 @@ namespace MusicApplication
             }
             else
             {
-                // MessageBox.Show("Don't have");
                 slPlay.Value = 0;
             }
         }

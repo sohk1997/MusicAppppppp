@@ -32,7 +32,7 @@ namespace MusicApplication
         public void Play()
         {
             DownloadTEMP(SongID);
-            playerClass.URL = Path.Combine(savePath, "buffer.mp3");
+            playerClass.URL = Path.Combine(savePath, "buffer");
             playerClass.play();
             //IWMPMedia media = playerClass.newMedia(playerClass.URL);
             //MessageBox.Show(media.durationString);
@@ -49,7 +49,7 @@ namespace MusicApplication
             fileInfo = client.DownloadSong(request);
             FileStream outputStream = null;
             Stream inputStream = fileInfo.FileByteStream;
-            string filePath = System.IO.Path.Combine(savePath, "buffer.mp3");
+            string filePath = System.IO.Path.Combine(savePath, "buffer");
             if (!System.IO.Directory.Exists(savePath))
             {
                 System.IO.Directory.CreateDirectory(savePath);

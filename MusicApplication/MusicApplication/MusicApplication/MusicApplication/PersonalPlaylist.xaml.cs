@@ -70,6 +70,7 @@ namespace MusicApplication
             SongControl songControl = new SongControl();
             songControl.Items = listOfSong;
             songControl.LoadData();
+            songControl.Parrent = this.Parrent;
             Parrent.Main.Content = songControl.Content; 
         }
     }
